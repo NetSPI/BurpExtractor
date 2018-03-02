@@ -16,6 +16,7 @@ public class ExtractorEditor {
     private JCheckBox regexCheckBox;
     private JTextField regex;
     private boolean keyListenerSet;
+    private final int SELECTION_BUFFER = 15;
 
     public ExtractorEditor(final IBurpExtenderCallbacks callbacks) {
         this.pane = new JPanel();
@@ -191,24 +192,24 @@ public class ExtractorEditor {
             int[] bounds = textSelector.getSelectionBounds();
             byte[] message = textSelector.getText();
 
-            // Get start expression (13 characters or fewer if necessary)
+            // Get start expression (SELECTION_BUFFER characters or fewer if necessary)
             int[] startExpressionBounds = new int[2];
-            if (bounds[0] < 13) {
+            if (bounds[0] < SELECTION_BUFFER) {
                 startExpressionBounds[0] = 0;
             } else {
-                startExpressionBounds[0] = bounds[0] - 13;
+                startExpressionBounds[0] = bounds[0] - SELECTION_BUFFER;
             }
             startExpressionBounds[1] = bounds[0];
             byte[] startExpression = Arrays.copyOfRange(message, startExpressionBounds[0], startExpressionBounds[1]);
 
-            // Get end delimeter (13 characters or fewer if necessary)
+            // Get end delimeter (SELECTION_BUFFER characters or fewer if necessary)
             int[] endDelimeterBounds = new int[2];
             int messageLength = message.length;
             endDelimeterBounds[0] = bounds[1];
-            if (bounds[1] > messageLength - 13) {
+            if (bounds[1] > messageLength - SELECTION_BUFFER) {
                 endDelimeterBounds[1] = messageLength;
             } else {
-                endDelimeterBounds[1] = bounds[1] + 13;
+                endDelimeterBounds[1] = bounds[1] + SELECTION_BUFFER;
             }
             byte[] endDelimeter = Arrays.copyOfRange(message, endDelimeterBounds[0], endDelimeterBounds[1]);
 
@@ -222,7 +223,7 @@ public class ExtractorEditor {
                 if (endText == "") {
                     return null;
                 }
-            } else if (startText.length() < 13){
+            } else if (startText.length() < SELECTION_BUFFER){
                 regex += "(^" + this.escapeRegex(startText) + ")";
             } else {
                 regex += "(.*" + this.escapeRegex(startText) + ")";
@@ -231,7 +232,7 @@ public class ExtractorEditor {
             regex += "(.*?)";
 
             // Build regex after string we want to select
-            if (endText.length() < 13) {
+            if (endText.length() < SELECTION_BUFFER) {
                 regex += "(" + endText + "$)";
             } else {
                 regex += "("  + this.escapeRegex(endText) + ".*)";
