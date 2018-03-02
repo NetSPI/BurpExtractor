@@ -3,6 +3,7 @@ Burp Extractor is intended to be used as a one-size-fits-all tool for extracting
 
 ## Send Request/Response to Extractor
 Send requests and responses to Extractor using a context menu item.
+<img src="https://github.com/NetSPI/BurpExtractor/blob/master/images/contextMenu.PNG?raw=true">
 
 ## Select Request/Response Pair
 Select requests and responses using a Comparer-like interface.
