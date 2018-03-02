@@ -1,5 +1,5 @@
 # Burp Extractor
-Burp Extractor is intended to be used as a one-size-fits-all tool for extracting data from HTTP responses to be reused in HTTP requests. This can be items such as CSRF tokens, Auth Bearer tokens, timestamps, etc. The extension uses regex to select needed data in responses, and will insert captured data into any HTTP request sent through Burp which matches a second regex.
+Burp Extractor is intended to be used as a one-size-fits-all tool for extracting data from HTTP responses to be reused in HTTP requests. This can be items such as CSRF tokens, Auth Bearer tokens, timestamps, etc. The extension uses regex to extract needed data from responses, and will insert extracted data into any HTTP request sent through Burp which matches a second regex.
 
 ## Send Request/Response to Extractor
 Send requests and responses to Extractor using a context menu item.
