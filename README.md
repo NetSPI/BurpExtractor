@@ -10,7 +10,7 @@ Select requests and responses using a Comparer-like interface.
 <img src="https://github.com/NetSPI/BurpExtractor/blob/master/images/requestResponseSelection.PNG?raw=true">
 
 ## Highlight Data to Extract
-Highlight data in Burp's text editor to automatically create regex strings to extract and insert data. Configure any necessary scope options or tailor your regex to suit your specific needs.
+Highlight data in Burp's text editor to automatically create regex strings to extract and insert data. Configure any necessary scope options or tailor your regex to suit your specific needs. Once a tab in Extractor is turned on, it must capture a response matching the response regex string before inserting data into requests.
 <img src="https://github.com/NetSPI/BurpExtractor/blob/master/images/regexSelection.PNG?raw=true">
 
 ## Simple Demo of Extractor
