@@ -19,7 +19,7 @@ public class ExtractorTab implements ITab {
     private boolean extractorOn;
     private ExtractorEditor requestEditor;
     private ExtractorEditor responseEditor;
-    private String extractedData = "";
+    private JTextArea dataToInsert;
     private Font normalFont;
     private Font boldFont;
 
@@ -48,7 +48,7 @@ public class ExtractorTab implements ITab {
         JLabel requestHeader = new JLabel("Request");
         constraints.gridx = 0;
         constraints.gridy = 0;
-        constraints.gridwidth = 1;
+        constraints.gridwidth = 2;
         constraints.fill = GridBagConstraints.NONE;
         this.normalFont = requestHeader.getFont();
         this.boldFont = new Font(this.normalFont.getFontName(), Font.BOLD, this.normalFont.getSize());
@@ -58,8 +58,23 @@ public class ExtractorTab implements ITab {
         JLabel responseHeader = new JLabel("Response");
         constraints.gridx = 0;
         constraints.gridy = 0;
+        constraints.gridwidth = 1;
         responseHeader.setFont(this.boldFont);
         rightPane.add(responseHeader, constraints);
+
+        // Add field to show the value which will be injected into requests
+        JLabel insertIntoRequestLabel = new JLabel("Value to insert:");
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        constraints.anchor = GridBagConstraints.WEST;
+        constraints.fill = GridBagConstraints.NONE;
+        leftPane.add(insertIntoRequestLabel, constraints);
+
+        this.dataToInsert = new JTextArea();
+        constraints.gridx = 1;
+        constraints.gridy = 1;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        leftPane.add(dataToInsert, constraints);
 
         // Made button to dictate whether or not the extension is active
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
@@ -127,17 +142,20 @@ public class ExtractorTab implements ITab {
         this.requestEditor = new ExtractorEditor(callbacks);
         constraints.gridx = 0;
         constraints.gridy = 2;
+        constraints.gridwidth = 2;
         constraints.fill = GridBagConstraints.BOTH;
         constraints.weightx = 0.5;
         constraints.weighty = 1;
         leftPane.add(requestEditor.getUIComponent(), constraints);
 
         this.responseEditor = new ExtractorEditor(callbacks);
+        this.responseEditor.getUIComponent().setBorder(new EmptyBorder(32, 0, 0, 0));
         constraints.gridx = 0;
-        constraints.gridy = 2;
+        constraints.gridy = 1;
         constraints.fill = GridBagConstraints.BOTH;
         constraints.weightx = 0.5;
         constraints.weighty = 1;
+        constraints.gridwidth = 1;
         rightPane.add(responseEditor.getUIComponent(), constraints);
 
         // If this tab was created from the menu, we should be able to populate the request and response
@@ -207,12 +225,12 @@ public class ExtractorTab implements ITab {
         }
     }
 
-    public String getExtractedData() {
-        return this.extractedData;
+    public String getDataToInsert() {
+        return this.dataToInsert.getText();
     }
 
-    public void setExtractedData(String data) {
-        this.extractedData = data;
+    public void setDataToInsert(String data) {
+        this.dataToInsert.setText(data);
     }
 
     private JPanel getHelpContents() {

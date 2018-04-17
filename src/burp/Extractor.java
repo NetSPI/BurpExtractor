@@ -1,5 +1,6 @@
 package burp;
 
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -33,8 +34,8 @@ public class Extractor implements IHttpListener {
 
                     // Check if we have the necessary components to do replacement
                     String requestSelectionRegex = extractorTab.getRequestSelectionRegex();
-                    extractedData = extractorTab.getExtractedData();
-                    if (extractedData != "" && requestSelectionRegex != "") {
+                    extractedData = extractorTab.getDataToInsert();
+                    if (!extractedData.equals("") && !requestSelectionRegex.equals("")) {
                         request = request.replaceAll(requestSelectionRegex, "$1" + extractedData + "$3");
                         edited = true;
                     }
@@ -65,7 +66,7 @@ public class Extractor implements IHttpListener {
 
                         // If we find a match in this response, replace the current data
                         if (matcher.find()) {
-                            extractorTab.setExtractedData(matcher.group(2));
+                            extractorTab.setDataToInsert(matcher.group(2));
                         }
                     }
                 }
