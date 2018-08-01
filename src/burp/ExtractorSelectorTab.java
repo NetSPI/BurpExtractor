@@ -1,7 +1,6 @@
 package burp;
 
 import javax.swing.*;
-
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
@@ -20,6 +19,7 @@ public class ExtractorSelectorTab implements ITab {
     private ExtractorMainTab mainTab;
     private IBurpExtenderCallbacks callbacks;
     private int messageCount = 0;
+    private boolean debugOn;
 
     public ExtractorSelectorTab(ExtractorMainTab mainTab, IBurpExtenderCallbacks callbacks) {
         this.mainTab = mainTab;
@@ -33,14 +33,61 @@ public class ExtractorSelectorTab implements ITab {
 
     private void addButtonPanel(JPanel pane) {
         GridBagConstraints constraints = new GridBagConstraints();
+        constraints.fill = GridBagConstraints.HORIZONTAL;
 
         // Add set of buttons at top of response table
-        // Add paste button
         JPanel upperButtonPanel = new JPanel();
         upperButtonPanel.setLayout(new GridBagLayout());
-        JButton pasteButton = new JButton("Paste");
+
+        // Add debug button
+        JButton debugButton = new JButton("Debug");
+        debugButton.setBackground(Color.LIGHT_GRAY);
+        this.debugOn = false;
         constraints.gridy = 0;
-        constraints.fill = GridBagConstraints.HORIZONTAL;
+        upperButtonPanel.add(debugButton, constraints);
+
+        debugButton.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                // Change button state
+                debugOn = !debugOn;
+
+                // Change button appearance
+                if (debugOn) {
+                    debugButton.setBackground(Color.GRAY);
+                    Logger.setLogLevel(Logger.DEBUG);
+
+
+                } else {
+                    debugButton.setBackground(Color.LIGHT_GRAY);
+                    Logger.setLogLevel(Logger.INFO);
+                }
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
+        // Add paste button
+        JButton pasteButton = new JButton("Paste");
+        constraints.gridy = 1;
         upperButtonPanel.add(pasteButton, constraints);
         pasteButton.addMouseListener(new MouseListener() {
             @Override
@@ -71,7 +118,7 @@ public class ExtractorSelectorTab implements ITab {
 
         // Add remove button
         JButton removeButton = new JButton("Remove");
-        constraints.gridy = 1;
+        constraints.gridy = 2;
         upperButtonPanel.add(removeButton, constraints);
         removeButton.addMouseListener(new MouseListener() {
             @Override
@@ -104,7 +151,7 @@ public class ExtractorSelectorTab implements ITab {
 
         // Add clear button
         JButton clearButton = new JButton("Clear");
-        constraints.gridy = 2;
+        constraints.gridy = 3;
         upperButtonPanel.add(clearButton, constraints);
         clearButton.addMouseListener(new MouseListener() {
             @Override

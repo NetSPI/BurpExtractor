@@ -7,17 +7,21 @@ import java.util.regex.Pattern;
 
 public class Extractor implements IHttpListener {
     private ExtractorMainTab extractorMainTab;
-
     private IExtensionHelpers helpers;
+    private Logger logger;
 
     public Extractor(ExtractorMainTab extractorMainTab, IBurpExtenderCallbacks callbacks) {
         this.extractorMainTab = extractorMainTab;
         this.helpers = callbacks.getHelpers();
+
+        this.logger = new Logger(new PrintWriter(callbacks.getStdout(), true));
+        Logger.setLogLevel(Logger.INFO);
     }
 
     @Override
     public void processHttpMessage(int toolFlag, boolean messageIsRequest, burp.IHttpRequestResponse messageInfo) {
         if (messageIsRequest) {
+            logger.debug("Processing request...");
                 byte[] requestBytes = messageInfo.getRequest();
                 String request = this.helpers.bytesToString(requestBytes);
 
@@ -31,12 +35,26 @@ public class Extractor implements IHttpListener {
                 if (extractorTab.requestIsInScope(url,
                         messageInfo.getHttpService().getHost()) &&
                         extractorTab.shouldModifyRequests()) {
+                    logger.debug("Request is in scope and Extractor tab is active.");
 
                     // Check if we have the necessary components to do replacement
                     String requestSelectionRegex = extractorTab.getRequestSelectionRegex();
                     extractedData = extractorTab.getDataToInsert();
                     if (!extractedData.equals("") && !requestSelectionRegex.equals("")) {
+                        logger.debug("Performing replacement...");
+
+                        // Only do this extra stuff if debugging is on
+                        if (Logger.getLogLevel() >= Logger.DEBUG) {
+                            Matcher matcher = Pattern.compile(requestSelectionRegex).matcher(request);
+                            if (matcher.find()) {
+                                logger.debug("Found a match for regex: " + requestSelectionRegex);
+                            } else {
+                                logger.debug("Did not find a match for regex: " + requestSelectionRegex);
+                            }
+                        }
+
                         request = request.replaceAll(requestSelectionRegex, "$1" + extractedData + "$3");
+                        logger.debug("Finished replacement.");
                         edited = true;
                     }
                 }
@@ -46,6 +64,7 @@ public class Extractor implements IHttpListener {
             }
         } else if (!messageIsRequest) {
 
+            logger.debug("Processing response...");
             byte[] responseBytes = messageInfo.getResponse();
             String response = this.helpers.bytesToString(responseBytes);
 
@@ -56,6 +75,7 @@ public class Extractor implements IHttpListener {
                 URL url = this.helpers.analyzeRequest(messageInfo.getHttpService(), messageInfo.getRequest()).getUrl();
                 if (extractorTab.responseIsInScope(url,
                         messageInfo.getHttpService().getHost())) {
+                    logger.debug("Response is in scope.");
 
                     String regex = extractorTab.getResponseSelectionRegex();
 
@@ -66,7 +86,10 @@ public class Extractor implements IHttpListener {
 
                         // If we find a match in this response, replace the current data
                         if (matcher.find()) {
+                            logger.debug("Found a match for regex: " + regex);
                             extractorTab.setDataToInsert(matcher.group(2));
+                        } else {
+                            logger.debug("Did not find a match for regex: " + regex);
                         }
                     }
                 }

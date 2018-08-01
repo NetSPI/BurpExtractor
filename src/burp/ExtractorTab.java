@@ -2,7 +2,6 @@ package burp;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.io.PrintWriter;
 import java.net.URL;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
