@@ -14,4 +14,4 @@ Highlight data in Burp's text editor to automatically create regex strings to ex
 <img src="https://github.com/NetSPI/BurpExtractor/blob/master/images/regexSelection.PNG?raw=true">
 
 ## Simple Demo of Extractor
-<img src="https://github.com/NetSPI/BurpExtractor/blob/master/images/walkthrough.gif?raw=true">
+<img src="https://github.com/NetSPI/BurpExtractor/blob/master/images/captioned_walkthrough.gif?raw=true">
