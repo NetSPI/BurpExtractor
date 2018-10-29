@@ -1,0 +1,19 @@
+<p>This extension allows tokens to be extracted from a response and replaced in requests.
+    It can use useful for dealing with anti-CSRF tokens, updated expiration times, sessions in an authorization header, etc.</p>
+
+<p><b>Using Burp Extractor</b></p>
+
+<ol>
+    <li>If a request requires a value from a response, right click on that request and select “Send to Extractor”. Then find a response where the client
+        receives this value from, and select “Send to Extractor”.</li>
+
+    <li>Go to the Extractor tab to view a Comparer-like interface, and select the request and response needed, then click “Go”.</li>
+
+    <li>Within the newly created tab, highlight the content of the request which needs to be replaced, and the content of the response which
+        contains the value to be inserted. Adjust the scope as necessary, and click “Turn Extractor on”.</li>
+
+    <li>Once turned on, Extractor will look for occurrences of the regex listed in the request and response panels, and extract or insert data appropriately.
+        It will also update the “Value to insert” field with the newest value extracted.</li>
+</ol>
+
+<p>Please consult the extension's Github page for a more complete tutorial.</p>

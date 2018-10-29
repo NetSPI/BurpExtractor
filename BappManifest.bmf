@@ -1,0 +1,12 @@
+Uuid: f24211fa6fcd4bbea6b21f99c5cad27a
+ExtensionType: 1
+Name: Token Extractor
+RepoName: token-extractor
+ScreenVersion: 1.0
+SerialVersion: 1
+MinPlatformVersion: 0
+ProOnly: False
+Author: Will Strei
+ShortDescription: Extract tokens from responses and use these in future requests
+EntryPoint: build/libs/token-extractor-all.jar
+BuildCommand: gradle fatJar
