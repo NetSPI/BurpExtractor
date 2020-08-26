@@ -22,8 +22,8 @@ public class Extractor implements IHttpListener {
     public void processHttpMessage(int toolFlag, boolean messageIsRequest, burp.IHttpRequestResponse messageInfo) {
         if (messageIsRequest) {
             logger.debug("Processing request...");
-                byte[] requestBytes = messageInfo.getRequest();
-                String request = this.helpers.bytesToString(requestBytes);
+            byte[] requestBytes = messageInfo.getRequest();
+            String request = this.helpers.bytesToString(requestBytes);
 
             // Loop over each tab to perform whatever replacement is necessary
             String extractedData;
@@ -33,7 +33,8 @@ public class Extractor implements IHttpListener {
                 // Determine if this message is in scope, and the user wants requests edited at this time
                 URL url = this.helpers.analyzeRequest(messageInfo.getHttpService(), requestBytes).getUrl();
                 if (extractorTab.requestIsInScope(url,
-                        messageInfo.getHttpService().getHost()) &&
+                        messageInfo.getHttpService().getHost(),
+                        toolFlag) &&
                         extractorTab.shouldModifyRequests()) {
                     logger.debug("Request is in scope and Extractor tab is active.");
 
@@ -74,7 +75,8 @@ public class Extractor implements IHttpListener {
                 // Check if message is in scope
                 URL url = this.helpers.analyzeRequest(messageInfo.getHttpService(), messageInfo.getRequest()).getUrl();
                 if (extractorTab.responseIsInScope(url,
-                        messageInfo.getHttpService().getHost())) {
+                        messageInfo.getHttpService().getHost(),
+                        toolFlag)) {
                     logger.debug("Response is in scope.");
 
                     String regex = extractorTab.getResponseSelectionRegex();
