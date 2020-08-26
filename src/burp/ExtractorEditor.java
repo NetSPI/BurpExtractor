@@ -5,11 +5,14 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class ExtractorEditor {
     private IExtensionHelpers helpers;
     private JPanel pane;
     private ITextEditor textSelector;
+    private HashMap<Integer, ToolMenuItem> toolSelectors;
+    private ToolMenuItem allTools;
     private JRadioButton useScope;
     private JRadioButton useCustomHost;
     private JTextField targetHost;
@@ -35,29 +38,54 @@ public class ExtractorEditor {
 
     // Add all buttons to editor
     private void addButtons(JPanel pane) {
-        GridBagConstraints constraints = new GridBagConstraints();
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
         // Add radio button for scope
         this.useScope = new JRadioButton("Use suite scope");
-        constraints.gridx = 0;
-        constraints.gridy = 0;
-        constraints.gridwidth = 3;
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        this.pane.add(this.useScope, constraints);
+        buttonPanel.add(this.useScope);
 
         // Add radio button for target host
         this.useCustomHost = new JRadioButton("Use specified target host");
-        constraints.gridx = 0;
-        constraints.gridy = 1;
-        constraints.gridwidth = 3;
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        this.pane.add(this.useCustomHost, constraints);
+        buttonPanel.add(this.useCustomHost);
 
         // Create button group and select suite scope by default
         ButtonGroup scopeSelection = new ButtonGroup();
         scopeSelection.add(this.useScope);
         scopeSelection.add(this.useCustomHost);
         this.useScope.setSelected(true);
+
+        // Create tool selection
+        toolSelectors = new HashMap<Integer, ToolMenuItem>();
+        JButton toolSelectionBar = new JButton("Select in-scope tools");
+        JPopupMenu toolSelection = new JPopupMenu();
+        this.allTools = new ToolMenuItem("All", true);
+        toolSelection.add(this.allTools);
+        ToolMenuItem proxyTool = new ToolMenuItem("Proxy", true);
+        toolSelectors.put(IBurpExtenderCallbacks.TOOL_PROXY, proxyTool);
+        toolSelection.add(proxyTool);
+        ToolMenuItem scannerTool = new ToolMenuItem("Scanner", true);
+        toolSelectors.put(IBurpExtenderCallbacks.TOOL_SCANNER, scannerTool);
+        toolSelection.add(scannerTool);
+        ToolMenuItem intruderTool = new ToolMenuItem("Intruder", true);
+        toolSelectors.put(IBurpExtenderCallbacks.TOOL_INTRUDER, intruderTool);
+        toolSelection.add(intruderTool);
+        ToolMenuItem repeater = new ToolMenuItem("Repeater", true);
+        toolSelectors.put(IBurpExtenderCallbacks.TOOL_REPEATER, repeater);
+        toolSelection.add(repeater);
+        toolSelectionBar.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                toolSelection.show(toolSelectionBar, 0, toolSelectionBar.getHeight());
+            }
+        });
+        buttonPanel.add(toolSelectionBar);
+
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridwidth = 3;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        pane.add(buttonPanel, constraints);
     }
 
     // Add our custom text editor
@@ -145,7 +173,7 @@ public class ExtractorEditor {
         // Add label for target host
         JLabel targetLabel = new JLabel("Target host: ");
         constraints.gridx = 0;
-        constraints.gridy = 2;
+        constraints.gridy = 1;
         constraints.gridwidth = 1;
         constraints.fill = GridBagConstraints.NONE;
         constraints.weightx = 0;
@@ -154,7 +182,7 @@ public class ExtractorEditor {
         // Add text field for target host
         this.targetHost = new JTextField();
         constraints.gridx = 1;
-        constraints.gridy = 2;
+        constraints.gridy = 1;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.weightx = 1;
         this.pane.add(this.targetHost, constraints);
@@ -162,7 +190,7 @@ public class ExtractorEditor {
         // Add regex checkBox
         this.regexCheckBox = new JCheckBox("Regex");
         constraints.gridx = 2;
-        constraints.gridy = 2;
+        constraints.gridy = 1;
         constraints.fill = GridBagConstraints.NONE;
         constraints.weightx = 0;
         this.pane.add(this.regexCheckBox, constraints);
@@ -170,7 +198,7 @@ public class ExtractorEditor {
         // Add label for regex
         JLabel regexLabel = new JLabel("Regex: ");
         constraints.gridx = 0;
-        constraints.gridy = 3;
+        constraints.gridy = 2;
         constraints.fill = GridBagConstraints.NONE;
         constraints.weightx = 0;
         this.pane.add(regexLabel, constraints);
@@ -178,7 +206,7 @@ public class ExtractorEditor {
         // Add text field for regex
         this.regex = new JTextField();
         constraints.gridx = 1;
-        constraints.gridy = 3;
+        constraints.gridy = 2;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.weightx = 1;
         this.pane.add(this.regex, constraints);
@@ -254,6 +282,10 @@ public class ExtractorEditor {
         return regex;
     }
 
+    public boolean isToolSelected(int toolFlag) {
+        return toolSelectors.containsKey(toolFlag) && toolSelectors.get(toolFlag).isSelected();
+    }
+
     public void fillTextArea(byte[] text) {
         this.textSelector.setText(text);
     }
@@ -282,5 +314,40 @@ public class ExtractorEditor {
     // Returns true if suite scope should be used to determine if a message is in scope
     public boolean useSuiteScope() {
         return this.useScope.isSelected();
+    }
+
+    // Create our own MenuItem so that we can prevent closing on every click
+    public class ToolMenuItem extends JCheckBoxMenuItem {
+
+        public ToolMenuItem(String text, boolean selected) {
+            super(text, selected);
+        }
+
+        @Override
+        public void doClick() {
+            super.doClick();
+            if (this == allTools) {
+                // Change all other menu items to match this status
+                boolean selected = this.isSelected();
+                for (ToolMenuItem menuItem : toolSelectors.values()) {
+                    menuItem.setSelected(selected);
+                }
+            } else {
+                if (allTools.isSelected()) {
+                    // If allTools is selected, then everything else should be selected. Deselect allTools
+                    allTools.setSelected(false);
+                }
+            }
+        }
+
+        @Override
+        protected void processMouseEvent(MouseEvent event) {
+            if (event.getID() == MouseEvent.MOUSE_RELEASED && contains(event.getPoint())) {
+                doClick();
+                setArmed(true);
+            } else {
+                super.processMouseEvent(event);
+            }
+        }
     }
 }
