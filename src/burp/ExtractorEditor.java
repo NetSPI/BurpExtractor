@@ -17,7 +17,8 @@ public class ExtractorEditor {
     private JRadioButton useCustomHost;
     private JTextField targetHost;
     private JCheckBox regexCheckBox;
-    private JTextField regex;
+    private JTextField startRegex;
+    private JTextField endRegex;
     private boolean keyListenerSet;
     private final int SELECTION_BUFFER = 15;
 
@@ -83,7 +84,7 @@ public class ExtractorEditor {
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = 0;
         constraints.gridy = 0;
-        constraints.gridwidth = 3;
+        constraints.gridwidth = 4;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         pane.add(buttonPanel, constraints);
     }
@@ -107,7 +108,7 @@ public class ExtractorEditor {
 
         constraints.gridx = 0;
         constraints.gridy = 4;
-        constraints.gridwidth = 3;
+        constraints.gridwidth = 4;
         constraints.fill = GridBagConstraints.BOTH;
         constraints.weighty = 1;
         pane.add(panel, constraints);
@@ -146,12 +147,19 @@ public class ExtractorEditor {
 
                         @Override
                         public void keyReleased(KeyEvent e) {
-                            regex.setText(buildSelectionRegex());
+                            String [] selectionRegex = buildSelectionRegex();
+                            if (selectionRegex != null) {
+                                startRegex.setText(selectionRegex[0]);
+                                endRegex.setText(selectionRegex[1]);
+                            }
                         }
                     });
                 }
-
-                regex.setText(buildSelectionRegex());
+                String [] selectionRegex = buildSelectionRegex();
+                if (selectionRegex != null) {
+                    startRegex.setText(selectionRegex[0]);
+                    endRegex.setText(selectionRegex[1]);
+                }
             }
 
             @Override
@@ -182,6 +190,7 @@ public class ExtractorEditor {
         // Add text field for target host
         this.targetHost = new JTextField();
         constraints.gridx = 1;
+        constraints.gridwidth = 3;
         constraints.gridy = 1;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.weightx = 1;
@@ -189,31 +198,49 @@ public class ExtractorEditor {
 
         // Add regex checkBox
         this.regexCheckBox = new JCheckBox("Regex");
-        constraints.gridx = 2;
+        constraints.gridx = 3;
         constraints.gridy = 1;
         constraints.fill = GridBagConstraints.NONE;
         constraints.weightx = 0;
         this.pane.add(this.regexCheckBox, constraints);
 
-        // Add label for regex
-        JLabel regexLabel = new JLabel("Regex: ");
+        // Add label for startRegex
+        JLabel regexLabel = new JLabel("Regex Start: ");
         constraints.gridx = 0;
+        constraints.gridwidth = 1;
         constraints.gridy = 2;
         constraints.fill = GridBagConstraints.NONE;
         constraints.weightx = 0;
         this.pane.add(regexLabel, constraints);
 
-        // Add text field for regex
-        this.regex = new JTextField();
+        // Add text field for startRegex
+        this.startRegex = new JTextField();
         constraints.gridx = 1;
         constraints.gridy = 2;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.weightx = 1;
-        this.pane.add(this.regex, constraints);
+        this.pane.add(this.startRegex, constraints);
+
+        // Add label for endRegex
+        JLabel endRegexLabel = new JLabel("Regex End: ");
+        constraints.gridx = 2;
+        constraints.gridwidth = 1;
+        constraints.gridy = 2;
+        constraints.fill = GridBagConstraints.NONE;
+        constraints.weightx = 0;
+        this.pane.add(endRegexLabel, constraints);
+
+        // Add text field for endRegex
+        this.endRegex = new JTextField();
+        constraints.gridx = 3;
+        constraints.gridy = 2;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        constraints.weightx = 1;
+        this.pane.add(this.endRegex, constraints);
     }
 
     // Build regex to represent the selected text in its appropriate context
-    private String buildSelectionRegex() {
+    private String[] buildSelectionRegex() {
 
         // Only perform action if user has selected something
         if (textSelector.getSelectedText().length > 0) {
@@ -242,30 +269,26 @@ public class ExtractorEditor {
             byte[] endDelimeter = Arrays.copyOfRange(message, endDelimeterBounds[0], endDelimeterBounds[1]);
 
             // Build full regex
-            String regex = "";
+            String[] regex = new String[2];
             String startText = this.helpers.bytesToString(startExpression);
             String endText = this.helpers.bytesToString(endDelimeter);
 
-            // Build regex before string we want to select
-            if (startText == "") {
-                if (endText == "") {
-                    return null;
-                }
-            } else if (startText.length() < SELECTION_BUFFER){
-                regex += "(^" + this.escapeRegex(startText) + ")";
-            } else {
-                regex += "(.*" + this.escapeRegex(startText) + ")";
+            // Build startRegex before string we want to select
+            if (startText == "" && endText == "") {
+                return null;
             }
 
-            regex += "(.*?)";
+            if (startText.length() < SELECTION_BUFFER) {
+                regex[0] = "^" + this.escapeRegex(startText);
+            } else {
+                regex[0] = this.escapeRegex(startText);
+            }
 
-            // Build regex after string we want to select
             if (endText.length() < SELECTION_BUFFER) {
-                regex += "(" + endText + "$)";
+                regex[1] = this.escapeRegex(endText) + "$";
             } else {
-                regex += "("  + this.escapeRegex(endText) + ".*)";
+                regex[1] = this.escapeRegex(endText);
             }
-
             return regex;
         } else {
             return null;
@@ -275,7 +298,7 @@ public class ExtractorEditor {
     // I hope that all necessary characters are escaped here, but I'm no regex pro so this could be faulty
     private String escapeRegex(String regex) {
 
-        // Escape all regex chars
+        // Escape all startRegex chars
         regex = regex.replaceAll("([!$^&*()-+{\\[}\\]|\\\\:,.?])", "\\\\$1")
                 .replace("\n", "\\n")
                 .replace("\r", "\\r");
@@ -291,8 +314,8 @@ public class ExtractorEditor {
     }
 
     // Get regex string which represents the context of the selected text
-    public String getSelectionRegex() {
-        return this.regex.getText();
+    public String[] getSelectionRegex() {
+        return new String[] {this.startRegex.getText(), this.endRegex.getText()};
     }
 
     public String getTargetHost() {

@@ -3,7 +3,6 @@ package burp;
 import java.awt.*;
 import java.awt.event.*;
 import java.net.URL;
-import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.*;
@@ -15,8 +14,6 @@ public class ExtractorTab implements ITab {
     private JSplitPane splitPane;
     private JPanel topPane;
     private JButton modifyRequests;
-    private ToolMenuItem allTools;
-    private HashMap<Integer, ToolMenuItem> toolSelectors;
     private boolean extractorOn;
     private ExtractorEditor requestEditor;
     private ExtractorEditor responseEditor;
@@ -124,32 +121,6 @@ public class ExtractorTab implements ITab {
             }
         });
 
-        // Create tool selection
-        toolSelectors = new HashMap<Integer, ToolMenuItem>();
-        JButton toolSelectionBar = new JButton("Select affected tools");
-        JPopupMenu toolSelection = new JPopupMenu();
-        this.allTools = new ToolMenuItem("All", true);
-        toolSelection.add(this.allTools);
-        ToolMenuItem proxyTool = new ToolMenuItem("Proxy", true);
-        toolSelectors.put(IBurpExtenderCallbacks.TOOL_PROXY, proxyTool);
-        toolSelection.add(proxyTool);
-        ToolMenuItem scannerTool = new ToolMenuItem("Scanner", true);
-        toolSelectors.put(IBurpExtenderCallbacks.TOOL_SCANNER, scannerTool);
-        toolSelection.add(scannerTool);
-        ToolMenuItem intruderTool = new ToolMenuItem("Intruder", true);
-        toolSelectors.put(IBurpExtenderCallbacks.TOOL_INTRUDER, intruderTool);
-        toolSelection.add(intruderTool);
-        ToolMenuItem repeater = new ToolMenuItem("Repeater", true);
-        toolSelectors.put(IBurpExtenderCallbacks.TOOL_REPEATER, repeater);
-        toolSelection.add(repeater);
-        toolSelectionBar.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                toolSelection.show(toolSelectionBar, 0, toolSelectionBar.getHeight());
-            }
-        });
-        buttonPanel.add(toolSelectionBar);
-
         // Create help button
         JButton helpButton = new JButton("?");
         buttonPanel.add(helpButton);
@@ -205,12 +176,12 @@ public class ExtractorTab implements ITab {
     }
 
     // Get the regex string to select the intended text for replacement in the request
-    public String getRequestSelectionRegex() {
+    public String[] getRequestSelectionRegex() {
         return this.requestEditor.getSelectionRegex();
     }
 
     // Get the regex string to select the text we want to replay somewhere in our requests
-    public String getResponseSelectionRegex() {
+    public String[] getResponseSelectionRegex() {
         return this.responseEditor.getSelectionRegex();
     }
 
@@ -219,49 +190,33 @@ public class ExtractorTab implements ITab {
         return this.extractorOn;
     }
 
-    private boolean toolIsInScope(int toolFlag) {
-        // Check if this tool should be included
-        ToolMenuItem toolMenuItem = this.toolSelectors.get(toolFlag);
-        return toolMenuItem != null && toolMenuItem.isSelected();
+    // Generalize checking scope
+    private boolean messageIsInScope(ExtractorEditor editor, URL url, String host, int toolFlag) {
+        if (!editor.isToolSelected(toolFlag)) {
+            return false;
+        }
+        if (editor.useSuiteScope()) {
+            return this.callbacks.isInScope(url);
+        } else {
+            if (editor.useRegexForTarget()) {
+                Pattern targetPattern = Pattern.compile(editor.getTargetHost());
+                Matcher targetMatcher = targetPattern.matcher(host);
+
+                return targetMatcher.find();
+            } else {
+                return host.equals(editor.getTargetHost());
+            }
+        }
     }
 
-    // Determine if the given URL is in scope as defined by suite scope or a custom host
+    // Determine if the given URL and tool is in scope as defined by suite scope or a custom host
     public boolean requestIsInScope(URL url, String host, int toolFlag) {
-        if (!toolIsInScope(toolFlag)) {
-            return false;
-        }
-        // Check if the request is in our defined scope
-        if (this.requestEditor.useSuiteScope()) {
-            return this.callbacks.isInScope(url);
-        } else {
-            if (this.requestEditor.useRegexForTarget()) {
-                Pattern targetPattern = Pattern.compile(this.requestEditor.getTargetHost());
-                Matcher targetMatcher = targetPattern.matcher(host);
-
-                return targetMatcher.find();
-            } else {
-                return host.equals(this.requestEditor.getTargetHost());
-            }
-        }
+        return messageIsInScope(this.requestEditor, url, host, toolFlag);
     }
 
-    // Determine if the given URL is in scope as defined by suite scope or a custom host
+    // Determine if the given URL and tool is in scope as defined by suite scope or a custom host
     public boolean responseIsInScope(URL url, String host, int toolFlag) {
-        if (!toolIsInScope(toolFlag)) {
-            return false;
-        }
-        if (this.responseEditor.useSuiteScope()) {
-            return this.callbacks.isInScope(url);
-        } else {
-            if (this.responseEditor.useRegexForTarget()) {
-                Pattern targetPattern = Pattern.compile(this.responseEditor.getTargetHost());
-                Matcher targetMatcher = targetPattern.matcher(host);
-
-                return targetMatcher.find();
-            } else {
-                return host.equals(this.responseEditor.getTargetHost());
-            }
-        }
+        return messageIsInScope(this.responseEditor, url, host, toolFlag);
     }
 
     public String getDataToInsert() {
@@ -340,40 +295,5 @@ public class ExtractorTab implements ITab {
     @Override
     public Component getUiComponent() {
         return this.topPane;
-    }
-
-    // Create our own MenuItem so that we can prevent closing on every click
-    public class ToolMenuItem extends JCheckBoxMenuItem {
-
-        public ToolMenuItem(String text, boolean selected) {
-            super(text, selected);
-        }
-
-        @Override
-        public void doClick() {
-            super.doClick();
-            if (this == allTools) {
-                // Change all other menu items to match this status
-                boolean selected = this.isSelected();
-                for (ToolMenuItem menuItem : toolSelectors.values()) {
-                    menuItem.setSelected(selected);
-                }
-            } else {
-                if (allTools.isSelected()) {
-                    // If allTools is selected, then everything else should be selected. Deselect allTools
-                    allTools.setSelected(false);
-                }
-            }
-        }
-
-        @Override
-        protected void processMouseEvent(MouseEvent event) {
-            if (event.getID() == MouseEvent.MOUSE_RELEASED && contains(event.getPoint())) {
-                doClick();
-                setArmed(true);
-            } else {
-                super.processMouseEvent(event);
-            }
-        }
     }
 }
