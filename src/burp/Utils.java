@@ -5,6 +5,10 @@ import java.util.regex.Pattern;
 
 public class Utils {
 	public static int[] getSelectionBounds(String request, String beforeRegex, String afterRegex) {
+		// Don't match anything if we don't have a regex defined
+		if (beforeRegex == "" && afterRegex == "") {
+			return null;
+		}
 		int[] selectionBounds = new int[2];
 		Matcher beforeMatcher = Pattern.compile(beforeRegex).matcher(request);
 		if (beforeMatcher.find()) {

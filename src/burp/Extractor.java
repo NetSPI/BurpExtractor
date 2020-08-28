@@ -45,13 +45,13 @@ public class Extractor implements IHttpListener {
 						logger.debug("Attempting replacement...");
 						int[] selectionBounds = Utils.getSelectionBounds(request, requestSelectionRegex[0], requestSelectionRegex[1]);
 						if (selectionBounds != null) {
-						    logger.debug("Found a match");
-                            request = request.substring(0, selectionBounds[0])
-                                    + extractedData
-                                    + request.substring(selectionBounds[1], request.length());
-                            edited = true;
-                            logger.debug("Finished replacement");
-                        }
+							logger.debug("Found a match");
+							request = request.substring(0, selectionBounds[0])
+									+ extractedData
+									+ request.substring(selectionBounds[1], request.length());
+							edited = true;
+							logger.debug("Finished replacement");
+						}
 					}
 				}
 			}
@@ -78,14 +78,14 @@ public class Extractor implements IHttpListener {
 
 					// Grab text from response
 					if (responseSelectionRegex[0] != "" && responseSelectionRegex[1] != "") {
-					    int[] selectionBounds = Utils.getSelectionBounds(response, responseSelectionRegex[0], responseSelectionRegex[1]);
-					    if (selectionBounds != null) {
-					        logger.debug("Found a match");
-					        extractorTab.setDataToInsert(response.substring(selectionBounds[0], selectionBounds[1]));
-                        }
+						int[] selectionBounds = Utils.getSelectionBounds(response, responseSelectionRegex[0], responseSelectionRegex[1]);
+						if (selectionBounds != null) {
+							logger.debug("Found a match");
+							extractorTab.setDataToInsert(response.substring(selectionBounds[0], selectionBounds[1]));
+						}
 					} else {
-					    logger.debug("Before and after regex not defined");
-                    }
+						logger.debug("Before and after regex not defined");
+					}
 				}
 			}
 		}
