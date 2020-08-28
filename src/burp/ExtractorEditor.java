@@ -128,7 +128,7 @@ public class ExtractorEditor {
 		// Create mouse listeners for message editor
 		this.textSelector.getComponent().addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mouseReleased(MouseEvent e) {
 				// I never figured out how to get focus on the textEditor component to set keyListeners,
 				// so just find out what is in focus when we click inside the editor and set a key listener on that.
 				if (!keyListenerSet) {
