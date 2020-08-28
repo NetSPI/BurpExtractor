@@ -206,7 +206,7 @@ public class ExtractorEditor {
 		this.pane.add(targetPanel, constraints);
 
 		// Add label for startRegex
-		JLabel regexLabel = new JLabel("Regex Start: ");
+		JLabel regexLabel = new JLabel("Before Regex: ");
 		constraints.gridx = 0;
 		constraints.gridwidth = 1;
 		constraints.gridy = 2;
@@ -223,7 +223,7 @@ public class ExtractorEditor {
 		this.pane.add(this.startRegex, constraints);
 
 		// Add label for endRegex
-		JLabel endRegexLabel = new JLabel("Regex End: ");
+		JLabel endRegexLabel = new JLabel("After Regex: ");
 		constraints.gridx = 2;
 		constraints.gridwidth = 1;
 		constraints.gridy = 2;
@@ -314,7 +314,7 @@ public class ExtractorEditor {
 	// I hope that all necessary characters are escaped here, but I'm no regex pro so this could be faulty
 	private String escapeRegex(String regex) {
 
-		// Escape all startRegex chars
+		// Escape all regex chars
 		regex = regex.replaceAll("([!$^&*()-+{\\[}\\]|\\\\:,.?])", "\\\\$1")
 				.replace("\n", "\\n")
 				.replace("\r", "\\r");

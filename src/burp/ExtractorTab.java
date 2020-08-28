@@ -236,8 +236,10 @@ public class ExtractorTab implements ITab {
 		helpScrollPanel.add(highlightTitle);
 		JLabel highlightInstructions = new JLabel("<html><body style='width: 250px'><p>Highlight the text in the " +
 				"request you would like to replace with data from the response. In the response, highlight the text " +
-				"you would like to extract and have inserted into the request. This will set the necessary regex to " +
-				"be used for selecting text. This regex can be edited manually if necessary.</p></body></html>");
+				"you would like to extract and have inserted into the request. Extractor will " +
+				"define regex for you when you select text in the request and response editors. If you want to " +
+				"make customizations to those regex strings, you can! Just make sure that you escape characters that " +
+				"are have special regex meaning. That seems to be anything in this list, though there may be something missing: !$^&*()-+{[}]|\\:,.?</p></body></html>");
 		helpScrollPanel.add(highlightInstructions);
 
 		// Add scope instructions
@@ -249,7 +251,8 @@ public class ExtractorTab implements ITab {
 				"scope in Extractor. Either a user can select \"Use suite scope\" which will cause Extractor to " +
 				"examine a request if it is in Burp Suite's scope. Otherwise, the \"Target host\" field will be " +
 				"examined, and a message from a matching (non-regex) host will cause Extractor to examine it." +
-				"</p></body></html>"));
+				"</p></br><p>You can also select the tools that will be included when looking for text in requests " +
+				"and responses using the \"Select in-scope tools\" button.</p></body></html>"));
 
 		// Running Extractor
 		JLabel runningTitle = new JLabel("Running Extractor");
