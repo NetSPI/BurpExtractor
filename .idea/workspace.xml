@@ -7,10 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a96e5258-9a04-4459-925d-6623ec6bfe2a" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/burp/Utils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Burp_Extractor_jar/Burp_Extractor.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Burp_Extractor_jar/Burp_Extractor.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/burp/Extractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burp/Extractor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/burp/ExtractorEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burp/ExtractorEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/burp/ExtractorTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burp/ExtractorTab.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,8 +35,8 @@
       <file leaf-file-name="ExtractorTab.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/burp/ExtractorTab.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="183" column="19" selection-start-line="183" selection-start-column="19" selection-end-line="183" selection-end-column="19" />
+            <state relative-caret-position="-785">
+              <caret line="32" column="38" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,8 +47,8 @@
       <file leaf-file-name="ExtractorEditor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/burp/ExtractorEditor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-268">
-              <caret line="318" column="5" selection-start-line="318" selection-start-column="5" selection-end-line="318" selection-end-column="5" />
+            <state relative-caret-position="-5287">
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2941#3147#0" expanded="true" />
@@ -71,20 +72,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Logger.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/burp/Logger.java">
+      <file leaf-file-name="Extractor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/burp/Extractor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+            <state relative-caret-position="1119">
+              <caret line="84" column="25" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Extractor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/burp/Extractor.java">
+      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/burp/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="26" lean-forward="true" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+            <state relative-caret-position="136">
+              <caret line="8" column="59" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -103,8 +107,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>setLog</find>
-      <find>button</find>
       <find>&quot;request</find>
       <find>modify</find>
       <find>debugbu</find>
@@ -132,6 +134,8 @@
       <find>startRegex</find>
       <find>getrequestSe</find>
       <find>buildSelectionRegex</find>
+      <find>textSelector</find>
+      <find>gridwidt</find>
       <find>getRequestSelectionRegex</find>
     </findStrings>
     <replaceStrings>
@@ -154,6 +158,7 @@
         <option value="$PROJECT_DIR$/src/burp/Logger.java" />
         <option value="$PROJECT_DIR$/src/burp/ExtractorSelectorTab.java" />
         <option value="$PROJECT_DIR$/src/burp/ExtractorTab.java" />
+        <option value="$PROJECT_DIR$/src/burp/Utils.java" />
         <option value="$PROJECT_DIR$/src/burp/Extractor.java" />
         <option value="$PROJECT_DIR$/src/burp/ExtractorEditor.java" />
       </list>
@@ -394,16 +399,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorTab.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/burp/ExtractorMainTab.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -737,8 +732,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/burp/ExtractorTab.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="183" column="19" selection-start-line="183" selection-start-column="19" selection-end-line="183" selection-end-column="19" />
+        <state relative-caret-position="-785">
+          <caret line="32" column="38" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -747,8 +742,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/burp/Extractor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="26" lean-forward="true" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        <state relative-caret-position="1119">
+          <caret line="84" column="25" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/burp/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="59" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -757,8 +762,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/burp/ExtractorEditor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-268">
-          <caret line="318" column="5" selection-start-line="318" selection-start-column="5" selection-end-line="318" selection-end-column="5" />
+        <state relative-caret-position="-5287">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2941#3147#0" expanded="true" />

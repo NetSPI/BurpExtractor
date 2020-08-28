@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -21,10 +22,12 @@ public class ExtractorEditor {
     private JTextField endRegex;
     private boolean keyListenerSet;
     private final int SELECTION_BUFFER = 15;
+    private Logger logger;
 
     public ExtractorEditor(final IBurpExtenderCallbacks callbacks) {
         this.pane = new JPanel();
         this.helpers = callbacks.getHelpers();
+        this.logger = new Logger(new PrintWriter(callbacks.getStdout(), true));
         this.pane.setLayout(new GridBagLayout());
 
         // Add buttons to panel
@@ -40,20 +43,6 @@ public class ExtractorEditor {
     // Add all buttons to editor
     private void addButtons(JPanel pane) {
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-
-        // Add radio button for scope
-        this.useScope = new JRadioButton("Use suite scope");
-        buttonPanel.add(this.useScope);
-
-        // Add radio button for target host
-        this.useCustomHost = new JRadioButton("Use specified target host");
-        buttonPanel.add(this.useCustomHost);
-
-        // Create button group and select suite scope by default
-        ButtonGroup scopeSelection = new ButtonGroup();
-        scopeSelection.add(this.useScope);
-        scopeSelection.add(this.useCustomHost);
-        this.useScope.setSelected(true);
 
         // Create tool selection
         toolSelectors = new HashMap<Integer, ToolMenuItem>();
@@ -80,6 +69,26 @@ public class ExtractorEditor {
             }
         });
         buttonPanel.add(toolSelectionBar);
+
+        // Create button for testing regex
+        JButton testRegexButton = new JButton("Test defined selection");
+        testRegexButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String matchResult = getTestRegexMatch();
+                JPopupMenu popup = new JPopupMenu();
+                JLabel contents = new JLabel();
+                if (matchResult == null) {
+                    contents.setText("Did not find a match for the defined start and end regex!");
+                } else {
+                    contents.setText("Found match: " + matchResult);
+                }
+                contents.setBorder(BorderFactory.createEmptyBorder(4,4,4,4));
+                popup.add(contents);
+                popup.show(testRegexButton, 0, testRegexButton.getHeight());
+            }
+        });
+        buttonPanel.add(testRegexButton);
 
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = 0;
@@ -179,30 +188,44 @@ public class ExtractorEditor {
         GridBagConstraints constraints = new GridBagConstraints();
 
         // Add label for target host
-        JLabel targetLabel = new JLabel("Target host: ");
-        constraints.gridx = 0;
-        constraints.gridy = 1;
-        constraints.gridwidth = 1;
-        constraints.fill = GridBagConstraints.NONE;
-        constraints.weightx = 0;
-        this.pane.add(targetLabel, constraints);
+        JPanel targetPanel = new JPanel(new GridBagLayout());
+        GridBagConstraints targetConstraints = new GridBagConstraints();
+
+        // Add radio button for scope
+        this.useScope = new JRadioButton("Use suite scope  ");
+        targetConstraints.gridx = 0;
+        targetPanel.add(this.useScope, targetConstraints);
+
+        // Add radio button for target host
+        this.useCustomHost = new JRadioButton("Use specified target host: ");
+        targetConstraints.gridx += 1;
+        targetPanel.add(this.useCustomHost, targetConstraints);
+
+        // Create button group and select suite scope by default
+        ButtonGroup scopeSelection = new ButtonGroup();
+        scopeSelection.add(this.useScope);
+        scopeSelection.add(this.useCustomHost);
+        this.useScope.setSelected(true);
 
         // Add text field for target host
         this.targetHost = new JTextField();
-        constraints.gridx = 1;
-        constraints.gridwidth = 3;
-        constraints.gridy = 1;
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.weightx = 1;
-        this.pane.add(this.targetHost, constraints);
+        targetConstraints.gridx += 1;
+        targetConstraints.weightx = 1;
+        targetConstraints.fill = GridBagConstraints.HORIZONTAL;
+        targetPanel.add(this.targetHost, targetConstraints);
 
         // Add regex checkBox
         this.regexCheckBox = new JCheckBox("Regex");
-        constraints.gridx = 3;
+        targetConstraints.gridx += 1;
+        targetConstraints.weightx = 0;
+        targetConstraints.fill = GridBagConstraints.NONE;
+        targetPanel.add(this.regexCheckBox, targetConstraints);
+
+        constraints.gridx = 0;
+        constraints.gridwidth = 4;
         constraints.gridy = 1;
-        constraints.fill = GridBagConstraints.NONE;
-        constraints.weightx = 0;
-        this.pane.add(this.regexCheckBox, constraints);
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        this.pane.add(targetPanel, constraints);
 
         // Add label for startRegex
         JLabel regexLabel = new JLabel("Regex Start: ");
@@ -293,6 +316,21 @@ public class ExtractorEditor {
         } else {
             return null;
         }
+    }
+
+    private String getTestRegexMatch() {
+        String toMatch = helpers.bytesToString(textSelector.getText());
+        int[] selectionBounds = Utils.getSelectionBounds(toMatch,
+                startRegex.getText(),
+                endRegex.getText());
+        logger.debug("Testing regex...");
+        logger.debug("String to match: " + toMatch);
+        logger.debug("Start regex: " + startRegex.getText());
+        logger.debug("End regex: " + endRegex.getText());
+        if (selectionBounds == null) {
+            return null;
+        }
+        return toMatch.substring(selectionBounds[0], selectionBounds[1]);
     }
 
     // I hope that all necessary characters are escaped here, but I'm no regex pro so this could be faulty

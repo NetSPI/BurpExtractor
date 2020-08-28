@@ -2,8 +2,6 @@ package burp;
 
 import java.io.PrintWriter;
 import java.net.URL;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Extractor implements IHttpListener {
 	private ExtractorMainTab extractorMainTab;
@@ -44,23 +42,16 @@ public class Extractor implements IHttpListener {
 					if (!extractedData.equals("")
 							&& !requestSelectionRegex[0].equals("")
 							&& !requestSelectionRegex[1].equals("")) {
-						logger.debug("Performing replacement...");
-
-						Matcher beforeMatcher = Pattern.compile(requestSelectionRegex[0]).matcher(request);
-						if (beforeMatcher.find()) {
-							int endOfBefore = beforeMatcher.end();
-							Matcher afterMatcher = Pattern.compile(requestSelectionRegex[1]).matcher(request);
-							if (afterMatcher.find(endOfBefore)) {
-								logger.debug("Found a match");
-								int startOfAfter = afterMatcher.start();
-								request = request.substring(0, endOfBefore)
-										+ extractedData
-										+ request.substring(startOfAfter, request.length());
-								edited = true;
-                                logger.debug("Finished replacement.");
-							}
-
-						}
+						logger.debug("Attempting replacement...");
+						int[] selectionBounds = Utils.getSelectionBounds(request, requestSelectionRegex[0], requestSelectionRegex[1]);
+						if (selectionBounds != null) {
+						    logger.debug("Found a match");
+                            request = request.substring(0, selectionBounds[0])
+                                    + extractedData
+                                    + request.substring(selectionBounds[1], request.length());
+                            edited = true;
+                            logger.debug("Finished replacement");
+                        }
 					}
 				}
 			}
@@ -87,17 +78,14 @@ public class Extractor implements IHttpListener {
 
 					// Grab text from response
 					if (responseSelectionRegex[0] != "" && responseSelectionRegex[1] != "") {
-						Matcher beforeMatcher = Pattern.compile(responseSelectionRegex[0]).matcher(response);
-						if (beforeMatcher.find()) {
-							int endOfBefore = beforeMatcher.end();
-							Matcher afterMatcher = Pattern.compile(responseSelectionRegex[1]).matcher(response);
-							if (afterMatcher.find(endOfBefore)) {
-								logger.debug("Found a match");
-								int startOfAfter = afterMatcher.start();
-								extractorTab.setDataToInsert(response.substring(endOfBefore, startOfAfter));
-							}
-						}
-					}
+					    int[] selectionBounds = Utils.getSelectionBounds(response, responseSelectionRegex[0], responseSelectionRegex[1]);
+					    if (selectionBounds != null) {
+					        logger.debug("Found a match");
+					        extractorTab.setDataToInsert(response.substring(selectionBounds[0], selectionBounds[1]));
+                        }
+					} else {
+					    logger.debug("Before and after regex not defined");
+                    }
 				}
 			}
 		}
