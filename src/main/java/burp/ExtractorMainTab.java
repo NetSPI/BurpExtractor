@@ -36,6 +36,7 @@ public class ExtractorMainTab implements ITab {
 	public ExtractorTab createExtractorTab(byte[] response, byte[] request, String responseHost, String requestHost, IBurpExtenderCallbacks callbacks) {
 		this.tabNum++;
 		int index = (this.tabNum) - this.tabsRemoved;
+
 		// Pause Persistor so that we don't write values before the tab loads
 		Persistor.pause();
 		ExtractorTab extractorTab = new ExtractorTab(response, request, responseHost, requestHost, callbacks);

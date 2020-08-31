@@ -8,7 +8,6 @@ import com.google.gson.Gson;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Persistor {
 	final static String settingName = "EXTRACTOR_STATE";

@@ -150,7 +150,6 @@ public class ExtractorSelectorTab implements ITab {
 				String requestHost = (String) requestTable.getModel().getValueAt(selectedRequest, 4);
 
 				mainTab.createExtractorTab(response, request, responseHost, requestHost, callbacks);
-//				Persistor.persistExtractor();
 			}
 		});
 	}
