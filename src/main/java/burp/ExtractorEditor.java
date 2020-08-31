@@ -1,7 +1,13 @@
 package burp;
 
+import burp.persistence.InScopeTools;
+import burp.persistence.Persistor;
+import burp.persistence.RequestResponseState;
+
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.PrintWriter;
@@ -171,6 +177,12 @@ public class ExtractorEditor {
 
 		// Add radio button for scope
 		this.useScope = new JRadioButton("Use suite scope  ");
+		this.useScope.addItemListener(new ItemListener() {
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+				Persistor.persistExtractor();
+			}
+		});
 		targetConstraints.gridx = 0;
 		targetPanel.add(this.useScope, targetConstraints);
 
@@ -187,6 +199,23 @@ public class ExtractorEditor {
 
 		// Add text field for target host
 		this.targetHost = new JTextField();
+		this.targetHost.getDocument().addDocumentListener(new DocumentListener() {
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				Persistor.persistExtractor();
+
+			}
+
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				Persistor.persistExtractor();
+			}
+
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				Persistor.persistExtractor();
+			}
+		});
 		targetConstraints.gridx += 1;
 		targetConstraints.weightx = 1;
 		targetConstraints.fill = GridBagConstraints.HORIZONTAL;
@@ -194,6 +223,12 @@ public class ExtractorEditor {
 
 		// Add regex checkBox
 		this.regexCheckBox = new JCheckBox("Regex");
+		this.regexCheckBox.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Persistor.persistExtractor();
+			}
+		});
 		targetConstraints.gridx += 1;
 		targetConstraints.weightx = 0;
 		targetConstraints.fill = GridBagConstraints.NONE;
@@ -216,6 +251,22 @@ public class ExtractorEditor {
 
 		// Add text field for startRegex
 		this.startRegex = new JTextField();
+		this.startRegex.getDocument().addDocumentListener(new DocumentListener() {
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				Persistor.persistExtractor();
+			}
+
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				Persistor.persistExtractor();
+			}
+
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				Persistor.persistExtractor();
+			}
+		});
 		constraints.gridx = 1;
 		constraints.gridy = 2;
 		constraints.fill = GridBagConstraints.HORIZONTAL;
@@ -233,6 +284,23 @@ public class ExtractorEditor {
 
 		// Add text field for endRegex
 		this.endRegex = new JTextField();
+		this.endRegex.getDocument().addDocumentListener(new DocumentListener() {
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				Persistor.persistExtractor();
+			}
+
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				Persistor.persistExtractor();
+			}
+
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				Persistor.persistExtractor();
+			}
+		});
+
 		constraints.gridx = 3;
 		constraints.gridy = 2;
 		constraints.fill = GridBagConstraints.HORIZONTAL;
@@ -244,7 +312,8 @@ public class ExtractorEditor {
 	private String[] buildSelectionRegex() {
 
 		// Only perform action if user has selected something
-		if (textSelector.getSelectedText().length > 0) {
+		byte[] selected = textSelector.getSelectedText();
+		if (textSelector.getSelectedText() != null) {
 			int[] bounds = textSelector.getSelectionBounds();
 			byte[] message = textSelector.getText();
 
@@ -355,6 +424,43 @@ public class ExtractorEditor {
 		return this.useScope.isSelected();
 	}
 
+	public String getEditorContent() {
+		return this.helpers.bytesToString(this.textSelector.getText());
+	}
+
+	public RequestResponseState getEditorState() {
+		InScopeTools tools = new InScopeTools(this.allTools.isSelected(),
+				this.isToolSelected(IBurpExtenderCallbacks.TOOL_PROXY),
+				this.isToolSelected(IBurpExtenderCallbacks.TOOL_SCANNER),
+				this.isToolSelected(IBurpExtenderCallbacks.TOOL_INTRUDER),
+				this.isToolSelected(IBurpExtenderCallbacks.TOOL_REPEATER));
+		String[] requestSelectionRegex = this.getSelectionRegex();
+		RequestResponseState state = new RequestResponseState(tools,
+				this.useSuiteScope(),
+				this.getTargetHost(),
+				this.useRegexForTarget(),
+				requestSelectionRegex[0],
+				requestSelectionRegex[1],
+				this.getEditorContent());
+		return state;
+	}
+
+	public void setEditorState(RequestResponseState state) {
+		this.allTools.setSelected(state.inScopeTools.allTools);
+		this.toolSelectors.get(IBurpExtenderCallbacks.TOOL_PROXY).setSelected(state.inScopeTools.proxy);
+		this.toolSelectors.get(IBurpExtenderCallbacks.TOOL_SCANNER).setSelected(state.inScopeTools.scanner);
+		this.toolSelectors.get(IBurpExtenderCallbacks.TOOL_INTRUDER).setSelected(state.inScopeTools.intruder);
+		this.toolSelectors.get(IBurpExtenderCallbacks.TOOL_REPEATER).setSelected(state.inScopeTools.repeater);
+		this.useScope.setSelected(state.useSuiteScope);
+		this.useCustomHost.setSelected(!state.useSuiteScope);
+		this.targetHost.setText(state.targetHost);
+		this.regexCheckBox.setSelected(state.useRegex);
+		this.startRegex.setText(state.beforeRegex);
+		this.endRegex.setText(state.afterRegex);
+		this.textSelector.setText(state.content.getBytes());
+	}
+
+
 	// Create our own MenuItem so that we can prevent closing on every click
 	public class ToolMenuItem extends JCheckBoxMenuItem {
 
@@ -377,6 +483,8 @@ public class ExtractorEditor {
 					allTools.setSelected(false);
 				}
 			}
+			logger.info("Saving in-scope....");
+			Persistor.persistExtractor();
 		}
 
 		@Override

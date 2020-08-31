@@ -1,5 +1,7 @@
 package burp;
 
+import burp.persistence.Persistor;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
@@ -148,6 +150,7 @@ public class ExtractorSelectorTab implements ITab {
 				String requestHost = (String) requestTable.getModel().getValueAt(selectedRequest, 4);
 
 				mainTab.createExtractorTab(response, request, responseHost, requestHost, callbacks);
+//				Persistor.persistExtractor();
 			}
 		});
 	}

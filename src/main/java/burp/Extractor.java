@@ -17,7 +17,7 @@ public class Extractor implements IHttpListener {
 	}
 
 	@Override
-	public void processHttpMessage(int toolFlag, boolean messageIsRequest, burp.IHttpRequestResponse messageInfo) {
+	public void processHttpMessage(int toolFlag, boolean messageIsRequest, IHttpRequestResponse messageInfo) {
 		if (messageIsRequest) {
 			logger.debug("Processing request...");
 			byte[] requestBytes = messageInfo.getRequest();

@@ -1,5 +1,8 @@
 package burp;
 
+import burp.persistence.ExtractorTabState;
+import burp.persistence.Persistor;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -33,11 +36,31 @@ public class ExtractorMainTab implements ITab {
 	public ExtractorTab createExtractorTab(byte[] response, byte[] request, String responseHost, String requestHost, IBurpExtenderCallbacks callbacks) {
 		this.tabNum++;
 		int index = (this.tabNum) - this.tabsRemoved;
+		// Pause Persistor so that we don't write values before the tab loads
+		Persistor.pause();
 		ExtractorTab extractorTab = new ExtractorTab(response, request, responseHost, requestHost, callbacks);
 		this.tabbedPane.add(extractorTab.getUiComponent());
 		this.tabbedPane.setTabComponentAt(index, new ButtonTabComponent(this, this.tabNum));
 		this.tabbedPane.setSelectedIndex(index);
 		this.extractorTabMap.put(this.tabNum, extractorTab);
+
+		// Now unpause, and write the addition
+		Persistor.unpause();
+		Persistor.persistExtractor();
+		return extractorTab;
+	}
+
+	public ExtractorTab createExtractorTab(ExtractorTabState tabState, IBurpExtenderCallbacks callbacks) {
+		ExtractorTab extractorTab = this.createExtractorTab(tabState.responseState.content.getBytes(),
+				tabState.requestState.content.getBytes(),
+				tabState.requestState.targetHost,
+				tabState.responseState.targetHost,
+				callbacks);
+		// Pause Persistor so that we don't have unnecessary writes for each change we make
+		Persistor.pause();
+		extractorTab.setState(tabState);
+		Persistor.unpause();
+		Persistor.persistExtractor();
 		return extractorTab;
 	}
 
@@ -55,6 +78,7 @@ public class ExtractorMainTab implements ITab {
 
 	public void removeExtractor(int tabNum) {
 		this.extractorTabMap.remove(tabNum);
+		Persistor.persistExtractor();
 	}
 
 	@Override

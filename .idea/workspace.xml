@@ -7,11 +7,64 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a96e5258-9a04-4459-925d-6623ec6bfe2a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Burp_Extractor_jar/Burp_Extractor.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/burp/ExtractorEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burp/ExtractorEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/burp/ExtractorTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burp/ExtractorTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Burp_Extractor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Burp_Extractor.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Burp_Extractor_jar/Burp_Extractor.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Burp_Extractor_jar/Burp_Extractor.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/BurpExtender.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/ButtonTabComponent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/Extractor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/ExtractorEditor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/ExtractorMainTab.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/ExtractorMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/ExtractorSelectorTab.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/ExtractorTab.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IBurpCollaboratorClientContext.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IBurpCollaboratorInteraction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IBurpExtender.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IBurpExtenderCallbacks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IContextMenuFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IContextMenuInvocation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/ICookie.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IExtensionHelpers.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IExtensionStateListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IHttpListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IHttpRequestResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IHttpRequestResponsePersisted.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IHttpRequestResponseWithMarkers.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IHttpService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IInterceptedProxyMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IIntruderAttack.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IIntruderPayloadGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IIntruderPayloadGeneratorFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IIntruderPayloadProcessor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IMenuItemHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IMessageEditor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IMessageEditorController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IMessageEditorTab.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IMessageEditorTabFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IParameter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IProxyListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IRequestInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IResponseInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IResponseKeywords.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IResponseVariations.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IScanIssue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IScanQueueItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IScannerCheck.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IScannerInsertionPoint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IScannerInsertionPointProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IScannerListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/IScopeChangeListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/ISessionHandlingAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/ITab.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/ITempFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/ITextEditor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/Logger.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burp/Utils.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,42 +75,78 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="ExtractorEditor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/burp/ExtractorEditor.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/burp/ExtractorEditor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="369" column="21" selection-start-line="369" selection-start-column="21" selection-end-line="369" selection-end-column="21" />
+            <state relative-caret-position="-224">
+              <caret line="457" column="16" lean-forward="true" selection-start-line="457" selection-start-column="16" selection-end-line="457" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2282#2443#0" expanded="true" />
-                <element signature="e#2442#2443#0" expanded="true" />
-                <element signature="e#2623#3176#0" expanded="true" />
-                <element signature="e#3175#3176#0" expanded="true" />
-                <element signature="e#4526#5522#0" expanded="true" />
-                <element signature="e#5521#5522#0" expanded="true" />
-                <element signature="e#12559#12560#0" expanded="true" />
-                <element signature="e#12606#12607#0" expanded="true" />
-                <element signature="e#12723#12724#0" expanded="true" />
-                <element signature="e#12811#12812#0" expanded="true" />
-                <element signature="e#13019#13020#0" expanded="true" />
-                <element signature="e#13067#13068#0" expanded="true" />
-                <element signature="e#13113#13114#0" expanded="true" />
-                <element signature="e#13158#13159#0" expanded="true" />
-                <element signature="e#13200#13201#0" expanded="true" />
-                <element signature="e#13254#13255#0" expanded="true" />
-                <element signature="e#13292#13293#0" expanded="true" />
-                <element signature="e#13324#13325#0" expanded="true" />
-                <element signature="e#13450#13451#0" expanded="true" />
-                <element signature="e#13499#13500#0" expanded="true" />
+                <element signature="e#6256#6257#0" expanded="true" />
+                <element signature="e#6295#6296#0" expanded="true" />
+                <element signature="e#7341#7342#0" expanded="true" />
+                <element signature="e#7388#7389#0" expanded="true" />
+                <element signature="e#7280#7281#0" expanded="true" />
+                <element signature="e#7319#7320#0" expanded="true" />
+                <element signature="e#7740#7741#0" expanded="true" />
+                <element signature="e#7779#7780#0" expanded="true" />
+                <element signature="e#8633#8634#0" expanded="true" />
+                <element signature="e#8672#8673#0" expanded="true" />
+                <element signature="e#8733#8734#0" expanded="true" />
+                <element signature="e#8772#8773#0" expanded="true" />
+                <element signature="e#8834#8835#0" expanded="true" />
+                <element signature="e#8873#8874#0" expanded="true" />
+                <element signature="e#9540#9541#0" expanded="true" />
+                <element signature="e#9579#9580#0" expanded="true" />
+                <element signature="e#9640#9641#0" expanded="true" />
+                <element signature="e#9679#9680#0" expanded="true" />
+                <element signature="e#9741#9742#0" expanded="true" />
+                <element signature="e#9780#9781#0" expanded="true" />
+                <element signature="e#11808#11809#0" expanded="true" />
+                <element signature="e#11877#11878#0" expanded="true" />
+                <element signature="e#12168#12169#0" expanded="true" />
+                <element signature="e#12198#12199#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="ExtractorTab.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/burp/ExtractorTab.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/burp/ExtractorTab.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="253" column="115" selection-start-line="253" selection-start-column="115" selection-end-line="253" selection-end-column="115" />
+            <state relative-caret-position="4182">
+              <caret line="286" column="17" selection-start-line="286" selection-start-column="17" selection-end-line="286" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3042#3463#0" expanded="true" />
+                <element signature="e#3462#3463#0" expanded="true" />
+                <element signature="e#3662#3795#0" expanded="true" />
+                <element signature="e#3794#3795#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Persistor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/burp/persistence/Persistor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="49" column="28" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1518#1519#0" expanded="true" />
+                <element signature="e#1528#1529#0" expanded="true" />
+                <element signature="e#1575#1576#0" expanded="true" />
+                <element signature="e#1596#1597#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExtractorSelectorTab.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/burp/ExtractorSelectorTab.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="372">
+              <caret line="151" column="42" selection-start-line="151" selection-start-column="24" selection-end-line="151" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -65,20 +154,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Logger.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/burp/Logger.java">
+      <file leaf-file-name="BurpExtender.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/burp/BurpExtender.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+            <state relative-caret-position="425">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Extractor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/burp/Extractor.java">
+      <file leaf-file-name="ExtractorMainTab.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/burp/ExtractorMainTab.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-581">
-              <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+            <state relative-caret-position="161">
+              <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -86,25 +175,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExtractorMenu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/burp/ExtractorMenu.java">
+      <file leaf-file-name="ButtonTabComponent.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/burp/ButtonTabComponent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#606#939#0" expanded="true" />
-                <element signature="e#938#939#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/burp/Utils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+            <state relative-caret-position="215">
+              <caret line="53" column="47" selection-start-line="53" selection-start-column="47" selection-end-line="53" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -123,12 +198,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>debugbu</find>
-      <find>table</find>
-      <find>requestTable</find>
-      <find>#</find>
-      <find>gettableMod</find>
-      <find>addR</find>
       <find>target hos</find>
       <find>target ho</find>
       <find>border</find>
@@ -147,12 +216,18 @@
       <find>setText</find>
       <find>startRegex</find>
       <find>getrequestSe</find>
-      <find>buildSelectionRegex</find>
       <find>textSelector</find>
       <find>gridwidt</find>
       <find>new MouseListener</find>
       <find>getRequestSelectionRegex</find>
       <find>mouse re</find>
+      <find>map</find>
+      <find>package burp</find>
+      <find>package main.java.burp</find>
+      <find>selec</find>
+      <find>useScope</find>
+      <find>createExtractorTab</find>
+      <find>buildSelectionRegex</find>
     </findStrings>
     <replaceStrings>
       <replace>extractorTab</replace>
@@ -174,11 +249,53 @@
         <option value="$PROJECT_DIR$/src/burp/ExtractorSelectorTab.java" />
         <option value="$PROJECT_DIR$/src/burp/Extractor.java" />
         <option value="$PROJECT_DIR$/src/burp/ExtractorMenu.java" />
-        <option value="$PROJECT_DIR$/src/burp/ExtractorMainTab.java" />
-        <option value="$PROJECT_DIR$/src/burp/ExtractorEditor.java" />
+        <option value="$PROJECT_DIR$/src/burp/Persistence.java" />
+        <option value="$PROJECT_DIR$/src/burp/persistence/ExtractorState.java" />
+        <option value="$PROJECT_DIR$/src/burp/persistence/RequestResponseState.java" />
+        <option value="$PROJECT_DIR$/src/burp/persistence/InScopeTools.java" />
+        <option value="$PROJECT_DIR$/src/burp/persistence/ExtractorTabState.java" />
         <option value="$PROJECT_DIR$/src/burp/ExtractorTab.java" />
+        <option value="$PROJECT_DIR$/src/burp/ExtractorEditor.java" />
+        <option value="$PROJECT_DIR$/src/burp/ExtractorMainTab.java" />
+        <option value="$PROJECT_DIR$/src/burp/persistence/Persistor.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/burp/ExtractorMenu.java" />
+        <option value="$PROJECT_DIR$/src/main/java/burp/Utils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/burp/IBurpCollaboratorClientContext.java" />
+        <option value="$PROJECT_DIR$/src/main/java/burp/IParameter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/burp/Extractor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/burp/persistence/RequestResponseState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/burp/persistence/ExtractorState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/burp/persistence/ExtractorTabState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/burp/IBurpExtenderCallbacks.java" />
+        <option value="$PROJECT_DIR$/src/main/java/burp/Logger.java" />
+        <option value="$PROJECT_DIR$/src/main/java/burp/IMessageEditorController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/burp/persistence/InScopeTools.java" />
+        <option value="$PROJECT_DIR$/src/main/java/burp/BurpExtender.java" />
+        <option value="$PROJECT_DIR$/src/main/java/burp/ButtonTabComponent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/burp/ExtractorSelectorTab.java" />
+        <option value="$PROJECT_DIR$/src/main/java/burp/ExtractorTab.java" />
+        <option value="$PROJECT_DIR$/src/main/java/burp/persistence/Persistor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/burp/ExtractorMainTab.java" />
+        <option value="$PROJECT_DIR$/src/main/java/burp/ExtractorEditor.java" />
       </list>
     </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Burp_Extractor" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Burp_Extractor" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1912" />
@@ -192,7 +309,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -209,7 +325,31 @@
               <item name="Burp_Extractor" type="b2602c69:ProjectViewProjectNode" />
               <item name="BurpExtractor" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Burp_Extractor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BurpExtractor" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Burp_Extractor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BurpExtractor" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="burp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Burp_Extractor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BurpExtractor" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="burp" type="462c0819:PsiDirectoryNode" />
+              <item name="persistence" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Burp_Extractor" type="b2602c69:ProjectViewProjectNode" />
@@ -219,13 +359,14 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.externalDependencies" />
@@ -360,57 +501,57 @@
       <window_info id="Image Layers" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="0" />
-      <window_info anchor="bottom" id="Run" order="6" />
+      <window_info active="true" anchor="right" id="Maven Projects" order="0" visible="true" weight="0.18765281" />
+      <window_info anchor="bottom" id="Run" order="6" visible="true" weight="0.32995495" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.32921347" />
       <window_info id="Capture Tool" order="0" />
       <window_info id="Designer" order="1" />
-      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.20782396" />
+      <window_info content_ui="combo" id="Project" order="6" weight="0.21026894" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.3277027" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info active="true" anchor="bottom" id="Debug" order="7" visible="true" weight="0.39977476" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.39977476" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="right" id="Properties" order="2" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.24984026" />
+      <window_info id="Nl-Palette" order="5" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="right" id="Commander" order="6" weight="0.4" />
-      <window_info id="Nl-Palette" order="5" />
+      <window_info anchor="right" id="Properties" order="2" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="5" />
+      <window_info anchor="right" id="Properties" order="2" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.24984026" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info id="Nl-Palette" order="5" />
-      <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Commander" order="6" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.32995495" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.21026894" />
+      <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
       <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info anchor="bottom" id="Run" order="6" />
+      <window_info anchor="bottom" id="Message" order="4" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="1" />
-      <window_info anchor="right" id="Properties" order="2" />
+      <window_info id="Nl-Palette" order="5" />
       <window_info id="UI Designer" order="2" />
-      <window_info anchor="bottom" id="Find" order="5" weight="0.32875264" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.3277027" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.39977476" />
       <window_info anchor="right" id="Palette&#9;" order="1" />
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.32921347" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
-      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info id="Capture Tool" order="0" />
-      <window_info anchor="bottom" id="Message" order="4" />
-      <window_info active="true" anchor="bottom" id="Messages" order="1" visible="true" weight="0.1611842" />
-      <window_info anchor="right" id="Maven Projects" order="0" />
-      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.2649371" />
+      <window_info anchor="right" id="Commander" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="1" weight="0.16103603" />
+      <window_info anchor="right" id="Maven Projects" order="0" visible="true" weight="0.18765281" />
+      <window_info id="Favorites" order="4" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -419,285 +560,249 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/burp/ExtractorSelectorTab.java</url>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/burp/ExtractorSelectorTab.java</url>
           <line>98</line>
           <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/burp/ExtractorMainTab.java</url>
+          <line>53</line>
+          <properties />
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/burp/persistence/Persistor.java</url>
+          <line>42</line>
+          <properties />
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/burp/ExtractorEditor.java</url>
+          <line>316</line>
+          <properties />
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="7" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="53" />
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Remote">
+        <watch expression="selected" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="setValue">
+      <expression>
+        <expression-string>&quot;hello&quot;.getBytes()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>[&quot;i&quot;]</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>&quot;hi&quot;</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>selected</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorMainTab.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="29" column="46" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ButtonTabComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2142">
-          <caret line="131" column="11" lean-forward="true" selection-start-line="131" selection-start-column="11" selection-end-line="131" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/BurpExtender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/Extractor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorTab.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorMainTab.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="29" column="46" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ButtonTabComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1938">
-          <caret line="114" column="21" lean-forward="true" selection-start-line="114" selection-start-column="21" selection-end-line="114" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/BurpExtender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="78" selection-start-line="18" selection-start-column="78" selection-end-line="18" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/Extractor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="35" column="89" selection-start-line="35" selection-start-column="65" selection-end-line="35" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorTab.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1513">
-          <caret line="94" column="51" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorEditor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/ExtractorEditor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2057">
           <caret line="127" lean-forward="true" selection-start-line="127" selection-end-line="127" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/BurpExtender.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/BurpExtender.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="78" selection-start-line="18" selection-start-column="78" selection-end-line="18" selection-end-column="78" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/Extractor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/Extractor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorMenu.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/ExtractorMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorTab.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/ExtractorTab.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3042#3463#0" expanded="true" />
+            <element signature="e#3462#3463#0" expanded="true" />
+            <element signature="e#3662#3795#0" expanded="true" />
+            <element signature="e#3794#3795#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorEditor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/ExtractorEditor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
           <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/BurpExtender.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/BurpExtender.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/Extractor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/Extractor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorMenu.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/ExtractorMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorTab.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/ExtractorTab.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1564">
           <caret line="101" column="8" selection-start-line="101" selection-start-column="8" selection-end-line="101" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3042#3463#0" expanded="true" />
+            <element signature="e#3462#3463#0" expanded="true" />
+            <element signature="e#3662#3795#0" expanded="true" />
+            <element signature="e#3794#3795#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorEditor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/ExtractorEditor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1785">
           <caret line="110" column="74" selection-start-line="110" selection-start-column="74" selection-end-line="110" selection-end-column="74" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/BurpExtender.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/BurpExtender.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="82" selection-start-line="5" selection-start-column="82" selection-end-line="5" selection-end-column="82" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/Extractor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/Extractor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorMenu.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/ExtractorMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorTab.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/ExtractorTab.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1564">
           <caret line="101" column="8" selection-start-line="101" selection-start-column="8" selection-end-line="101" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3042#3463#0" expanded="true" />
+            <element signature="e#3462#3463#0" expanded="true" />
+            <element signature="e#3662#3795#0" expanded="true" />
+            <element signature="e#3794#3795#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorEditor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/ExtractorEditor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2193">
           <caret line="136" column="21" lean-forward="true" selection-start-line="136" selection-start-column="21" selection-end-line="136" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/BurpExtender.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/BurpExtender.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="82" selection-start-line="5" selection-start-column="82" selection-end-line="5" selection-end-column="82" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/Extractor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/Extractor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorMenu.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/ExtractorMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorTab.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/ExtractorTab.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1564">
           <caret line="101" column="8" selection-start-line="101" selection-start-column="8" selection-end-line="101" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3042#3463#0" expanded="true" />
+            <element signature="e#3462#3463#0" expanded="true" />
+            <element signature="e#3662#3795#0" expanded="true" />
+            <element signature="e#3794#3795#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorEditor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/ExtractorEditor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3247">
           <caret line="197" selection-start-line="197" selection-end-line="197" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/IMenuItemHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/IMenuItemHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
@@ -716,132 +821,239 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/IBurpExtender.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/IBurpExtender.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ButtonTabComponent.java">
+    <entry file="file://$PROJECT_DIR$/src/burp/Persistence.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="52" column="48" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="48" />
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/BurpExtender.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="554">
+          <caret line="39" column="12" lean-forward="true" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/ExtractorMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="18" selection-start-column="18" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/IBurpCollaboratorClientContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="2" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/IParameter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/persistence/ExtractorState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/IMessageEditorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="42" column="55" selection-start-line="42" selection-start-column="55" selection-end-line="42" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/IHttpRequestResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/Logger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/IExtensionStateListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/IBurpExtenderCallbacks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2363">
+          <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/persistence/ExtractorTabState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="31" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/persistence/RequestResponseState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="41" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="41" />
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorSelectorTab.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/IScannerListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4573">
-          <caret line="273" column="37" selection-start-line="273" selection-start-column="37" selection-end-line="273" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1374#1755#0" expanded="true" />
-            <element signature="e#1754#1755#0" expanded="true" />
-            <element signature="e#3282#3440#0" expanded="true" />
-            <element signature="e#3439#3440#0" expanded="true" />
-            <element signature="e#3880#4160#0" expanded="true" />
-            <element signature="e#4159#4160#0" expanded="true" />
-            <element signature="e#5149#5644#0" expanded="true" />
-            <element signature="e#5643#5644#0" expanded="true" />
-            <element signature="e#7332#7983#0" expanded="true" />
-            <element signature="e#7982#7983#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="306">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/Logger.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/Extractor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+        <state relative-caret-position="187">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorMainTab.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/ButtonTabComponent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+        <state relative-caret-position="215">
+          <caret line="53" column="47" selection-start-line="53" selection-start-column="47" selection-end-line="53" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorMenu.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/persistence/InScopeTools.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="238">
+          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/BurpExtender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/ExtractorSelectorTab.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="151" column="42" selection-start-line="151" selection-start-column="24" selection-end-line="151" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#606#939#0" expanded="true" />
-            <element signature="e#938#939#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/Extractor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/persistence/Persistor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-581">
-          <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+        <state relative-caret-position="247">
+          <caret line="49" column="28" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1518#1519#0" expanded="true" />
+            <element signature="e#1528#1529#0" expanded="true" />
+            <element signature="e#1575#1576#0" expanded="true" />
+            <element signature="e#1596#1597#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/ExtractorMainTab.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorEditor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/ExtractorEditor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="369" column="21" selection-start-line="369" selection-start-column="21" selection-end-line="369" selection-end-column="21" />
+        <state relative-caret-position="-224">
+          <caret line="457" column="16" lean-forward="true" selection-start-line="457" selection-start-column="16" selection-end-line="457" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2282#2443#0" expanded="true" />
-            <element signature="e#2442#2443#0" expanded="true" />
-            <element signature="e#2623#3176#0" expanded="true" />
-            <element signature="e#3175#3176#0" expanded="true" />
-            <element signature="e#4526#5522#0" expanded="true" />
-            <element signature="e#5521#5522#0" expanded="true" />
-            <element signature="e#12559#12560#0" expanded="true" />
-            <element signature="e#12606#12607#0" expanded="true" />
-            <element signature="e#12723#12724#0" expanded="true" />
-            <element signature="e#12811#12812#0" expanded="true" />
-            <element signature="e#13019#13020#0" expanded="true" />
-            <element signature="e#13067#13068#0" expanded="true" />
-            <element signature="e#13113#13114#0" expanded="true" />
-            <element signature="e#13158#13159#0" expanded="true" />
-            <element signature="e#13200#13201#0" expanded="true" />
-            <element signature="e#13254#13255#0" expanded="true" />
-            <element signature="e#13292#13293#0" expanded="true" />
-            <element signature="e#13324#13325#0" expanded="true" />
-            <element signature="e#13450#13451#0" expanded="true" />
-            <element signature="e#13499#13500#0" expanded="true" />
+            <element signature="e#6256#6257#0" expanded="true" />
+            <element signature="e#6295#6296#0" expanded="true" />
+            <element signature="e#7341#7342#0" expanded="true" />
+            <element signature="e#7388#7389#0" expanded="true" />
+            <element signature="e#7280#7281#0" expanded="true" />
+            <element signature="e#7319#7320#0" expanded="true" />
+            <element signature="e#7740#7741#0" expanded="true" />
+            <element signature="e#7779#7780#0" expanded="true" />
+            <element signature="e#8633#8634#0" expanded="true" />
+            <element signature="e#8672#8673#0" expanded="true" />
+            <element signature="e#8733#8734#0" expanded="true" />
+            <element signature="e#8772#8773#0" expanded="true" />
+            <element signature="e#8834#8835#0" expanded="true" />
+            <element signature="e#8873#8874#0" expanded="true" />
+            <element signature="e#9540#9541#0" expanded="true" />
+            <element signature="e#9579#9580#0" expanded="true" />
+            <element signature="e#9640#9641#0" expanded="true" />
+            <element signature="e#9679#9680#0" expanded="true" />
+            <element signature="e#9741#9742#0" expanded="true" />
+            <element signature="e#9780#9781#0" expanded="true" />
+            <element signature="e#11808#11809#0" expanded="true" />
+            <element signature="e#11877#11878#0" expanded="true" />
+            <element signature="e#12168#12169#0" expanded="true" />
+            <element signature="e#12198#12199#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/burp/ExtractorTab.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/burp/ExtractorTab.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="253" column="115" selection-start-line="253" selection-start-column="115" selection-end-line="253" selection-end-column="115" />
+        <state relative-caret-position="4182">
+          <caret line="286" column="17" selection-start-line="286" selection-start-column="17" selection-end-line="286" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3042#3463#0" expanded="true" />
+            <element signature="e#3462#3463#0" expanded="true" />
+            <element signature="e#3662#3795#0" expanded="true" />
+            <element signature="e#3794#3795#0" expanded="true" />
           </folding>
         </state>
       </provider>

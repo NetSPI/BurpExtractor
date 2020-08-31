@@ -1,5 +1,8 @@
 package burp;
 
+import burp.persistence.RequestResponseState;
+import burp.persistence.ExtractorTabState;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.net.URL;
@@ -267,6 +270,21 @@ public class ExtractorTab implements ITab {
 				"</p></body></html>"));
 
 		return helpPanel;
+	}
+
+	public ExtractorTabState getTabState() {
+		// Build request state
+		RequestResponseState requestState = this.requestEditor.getEditorState();
+
+		// Build response state
+		RequestResponseState responseState = this.responseEditor.getEditorState();
+
+		return new ExtractorTabState(requestState, responseState);
+	}
+
+	public void setState(ExtractorTabState state) {
+		this.requestEditor.setEditorState(state.requestState);
+		this.responseEditor.setEditorState(state.responseState);
 	}
 
 	@Override
