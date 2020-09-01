@@ -1,7 +1,5 @@
 package burp;
 
-import burp.persistence.Persistor;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;

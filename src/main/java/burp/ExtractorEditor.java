@@ -24,8 +24,8 @@ public class ExtractorEditor {
 	private JRadioButton useCustomHost;
 	private JTextField targetHost;
 	private JCheckBox regexCheckBox;
-	private JTextField startRegex;
-	private JTextField endRegex;
+	private JTextField beforeRegex;
+	private JTextField afterRegex;
 	private boolean keyListenerSet;
 	private final int SELECTION_BUFFER = 15;
 	private Logger logger;
@@ -152,16 +152,16 @@ public class ExtractorEditor {
 						public void keyReleased(KeyEvent e) {
 							String [] selectionRegex = buildSelectionRegex();
 							if (selectionRegex != null) {
-								startRegex.setText(selectionRegex[0]);
-								endRegex.setText(selectionRegex[1]);
+								beforeRegex.setText(selectionRegex[0]);
+								afterRegex.setText(selectionRegex[1]);
 							}
 						}
 					});
 				}
 				String [] selectionRegex = buildSelectionRegex();
 				if (selectionRegex != null) {
-					startRegex.setText(selectionRegex[0]);
-					endRegex.setText(selectionRegex[1]);
+					beforeRegex.setText(selectionRegex[0]);
+					afterRegex.setText(selectionRegex[1]);
 				}
 			}
 		});
@@ -240,7 +240,7 @@ public class ExtractorEditor {
 		constraints.fill = GridBagConstraints.HORIZONTAL;
 		this.pane.add(targetPanel, constraints);
 
-		// Add label for startRegex
+		// Add label for beforeRegex
 		JLabel regexLabel = new JLabel("Before Regex: ");
 		constraints.gridx = 0;
 		constraints.gridwidth = 1;
@@ -249,9 +249,9 @@ public class ExtractorEditor {
 		constraints.weightx = 0;
 		this.pane.add(regexLabel, constraints);
 
-		// Add text field for startRegex
-		this.startRegex = new JTextField();
-		this.startRegex.getDocument().addDocumentListener(new DocumentListener() {
+		// Add text field for beforeRegex
+		this.beforeRegex = new JTextField();
+		this.beforeRegex.getDocument().addDocumentListener(new DocumentListener() {
 			@Override
 			public void insertUpdate(DocumentEvent e) {
 				Persistor.persistExtractor();
@@ -271,9 +271,9 @@ public class ExtractorEditor {
 		constraints.gridy = 2;
 		constraints.fill = GridBagConstraints.HORIZONTAL;
 		constraints.weightx = 1;
-		this.pane.add(this.startRegex, constraints);
+		this.pane.add(this.beforeRegex, constraints);
 
-		// Add label for endRegex
+		// Add label for afterRegex
 		JLabel endRegexLabel = new JLabel("After Regex: ");
 		constraints.gridx = 2;
 		constraints.gridwidth = 1;
@@ -282,9 +282,9 @@ public class ExtractorEditor {
 		constraints.weightx = 0;
 		this.pane.add(endRegexLabel, constraints);
 
-		// Add text field for endRegex
-		this.endRegex = new JTextField();
-		this.endRegex.getDocument().addDocumentListener(new DocumentListener() {
+		// Add text field for afterRegex
+		this.afterRegex = new JTextField();
+		this.afterRegex.getDocument().addDocumentListener(new DocumentListener() {
 			@Override
 			public void insertUpdate(DocumentEvent e) {
 				Persistor.persistExtractor();
@@ -305,7 +305,7 @@ public class ExtractorEditor {
 		constraints.gridy = 2;
 		constraints.fill = GridBagConstraints.HORIZONTAL;
 		constraints.weightx = 1;
-		this.pane.add(this.endRegex, constraints);
+		this.pane.add(this.afterRegex, constraints);
 	}
 
 	// Build regex to represent the selected text in its appropriate context
@@ -343,7 +343,7 @@ public class ExtractorEditor {
 			String startText = this.helpers.bytesToString(startExpression);
 			String endText = this.helpers.bytesToString(endDelimeter);
 
-			// Build startRegex before string we want to select
+			// Build beforeRegex before string we want to select
 			if (startText == "" && endText == "") {
 				return null;
 			}
@@ -368,12 +368,12 @@ public class ExtractorEditor {
 	private String getTestRegexMatch() {
 		String toMatch = helpers.bytesToString(textSelector.getText());
 		int[] selectionBounds = Utils.getSelectionBounds(toMatch,
-				startRegex.getText(),
-				endRegex.getText());
+				beforeRegex.getText(),
+				afterRegex.getText());
 		logger.debug("Testing regex...");
 		logger.debug("String to match: " + toMatch);
-		logger.debug("Start regex: " + startRegex.getText());
-		logger.debug("End regex: " + endRegex.getText());
+		logger.debug("Start regex: " + beforeRegex.getText());
+		logger.debug("End regex: " + afterRegex.getText());
 		if (selectionBounds == null) {
 			return null;
 		}
@@ -400,7 +400,7 @@ public class ExtractorEditor {
 
 	// Get regex string which represents the context of the selected text
 	public String[] getSelectionRegex() {
-		return new String[] {this.startRegex.getText(), this.endRegex.getText()};
+		return new String[] {this.beforeRegex.getText(), this.afterRegex.getText()};
 	}
 
 	public String getTargetHost() {
@@ -455,8 +455,8 @@ public class ExtractorEditor {
 		this.useCustomHost.setSelected(!state.useSuiteScope);
 		this.targetHost.setText(state.targetHost);
 		this.regexCheckBox.setSelected(state.useRegex);
-		this.startRegex.setText(state.beforeRegex);
-		this.endRegex.setText(state.afterRegex);
+		this.beforeRegex.setText(state.beforeRegex);
+		this.afterRegex.setText(state.afterRegex);
 		this.textSelector.setText(state.content.getBytes());
 	}
 
