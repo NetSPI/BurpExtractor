@@ -229,7 +229,7 @@ public class ExtractorTab implements ITab {
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setViewportView(helpScrollPanel);
-		scrollPane.setPreferredSize(new Dimension(345,200));
+//		scrollPane.setPreferredSize(new Dimension(500,300));
 		helpPanel.add(scrollPane);
 
 		// Add text selection instructions
@@ -237,12 +237,13 @@ public class ExtractorTab implements ITab {
 		highlightTitle.setBorder(new EmptyBorder(5,5,5,5));
 		highlightTitle.setFont(this.boldFont);
 		helpScrollPanel.add(highlightTitle);
-		JLabel highlightInstructions = new JLabel("<html><body style='width: 250px'><p>Highlight the text in the " +
+		JLabel highlightInstructions = new JLabel("<html><body style='width: 475px'><p>Highlight the text in the " +
 				"request you would like to replace with data from the response. In the response, highlight the text " +
 				"you would like to extract and have inserted into the request. Extractor will " +
-				"define regex for you when you select text in the request and response editors. If you want to " +
+				"define regex for you when you select text in the request and response editors.</p><p>If you want to " +
 				"make customizations to those regex strings, you can! Just make sure that you escape characters that " +
-				"are have special regex meaning. That seems to be anything in this list, though there may be something missing: !$^&*()-+{[}]|\\:,.?</p></body></html>");
+				"are have special regex meaning. That seems to be anything in this list, though there may be " +
+				"something missing: !$^&*()-+{[}]|\\:,.?</p></body></html>");
 		helpScrollPanel.add(highlightInstructions);
 
 		// Add scope instructions
@@ -250,21 +251,21 @@ public class ExtractorTab implements ITab {
 		scopeTitle.setBorder(new EmptyBorder(5,5,5,5));
 		scopeTitle.setFont(this.boldFont);
 		helpScrollPanel.add(scopeTitle);
-		helpScrollPanel.add(new JLabel("<html><body style='width: 250px'><p>There are two options for defining " +
-				"scope in Extractor. Either a user can select \"Use suite scope\" which will cause Extractor to " +
+		helpScrollPanel.add(new JLabel("<html><body style='width: 475px'><p>Users can define scope using both " +
+				"the host and the tools to target. Either a user can select \"Use suite scope\" which will cause Extractor to " +
 				"examine a request if it is in Burp Suite's scope. Otherwise, the \"Target host\" field will be " +
-				"examined, and a message from a matching (non-regex) host will cause Extractor to examine it." +
-				"</p></br><p>You can also select the tools that will be included when looking for text in requests " +
-				"and responses using the \"Select in-scope tools\" button.</p></body></html>"));
+				"examined, and a message from a matching host will cause Extractor to examine it." +
+				"</p><p>Use the \"Select in-scope tools\" button to select the tools that Extractor will " +
+				"examine for matching tokens.</p></body></html>"));
 
 		// Running Extractor
 		JLabel runningTitle = new JLabel("Running Extractor");
 		runningTitle.setBorder(new EmptyBorder(5,5,5,5));
 		runningTitle.setFont(this.boldFont);
 		helpScrollPanel.add(runningTitle);
-		helpScrollPanel.add(new JLabel("<html><body style='width:250px'><p>To start altering requests with " +
+		helpScrollPanel.add(new JLabel("<html><body style='width:475px'><p>To start altering requests with " +
 				"Extractor, just click \"Turn Extractor on\". Extractor will begin examining in-scope requests and " +
-				"responses which match the defined scope for text which matches the regex fields. Once Extractor " +
+				"responses for text which matches the before and after regex fields. Once Extractor " +
 				"has found a match in a response, it will save the text, and write it to the selected location in the " +
 				"request. Multiple Extractor tabs can be used at once, and will execute in the order they were created." +
 				"</p></body></html>"));
