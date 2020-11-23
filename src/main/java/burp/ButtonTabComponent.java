@@ -52,7 +52,6 @@ public class ButtonTabComponent extends JPanel {
                 extractorMainTab.removeTab(index);
                 extractorMainTab.removeExtractor(tabNum);
                 ExtractorMainTab.tabsRemoved++;
-
             }
         }
     }
