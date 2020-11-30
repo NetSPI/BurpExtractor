@@ -83,14 +83,17 @@ public class ExtractorEditor {
 			public void mouseClicked(MouseEvent e) {
 				String matchResult = getTestRegexMatch();
 				JPopupMenu popup = new JPopupMenu();
+				JPanel menuPanel = new JPanel();
 				JLabel contents = new JLabel();
 				if (matchResult == null) {
 					contents.setText("Did not find a match for the defined start and end regex!");
 				} else {
 					contents.setText("Found match: " + matchResult);
 				}
-				contents.setBorder(BorderFactory.createEmptyBorder(4,4,4,4));
-				popup.add(contents);
+				contents.setBorder(BorderFactory.createEmptyBorder(0,4,0,4));
+				menuPanel.setOpaque(false);
+				menuPanel.add(contents);
+				popup.add(menuPanel);
 				popup.show(testRegexButton, 0, testRegexButton.getHeight());
 			}
 		});
