@@ -1,0 +1,21 @@
+package burp.persistence;
+
+public class InScopeTools {
+	public boolean allTools;
+	public boolean proxy;
+	public boolean scanner;
+	public boolean intruder;
+	public boolean repeater;
+
+	public InScopeTools(boolean allTools,
+						boolean proxy,
+						boolean scanner,
+						boolean intruder,
+						boolean repeater) {
+		this.allTools = allTools;
+		this.proxy = proxy;
+		this.scanner = scanner;
+		this.intruder = intruder;
+		this.repeater = repeater;
+	}
+}
