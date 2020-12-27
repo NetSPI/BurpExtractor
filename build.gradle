@@ -2,29 +2,43 @@ apply plugin: 'java'
 
 repositories {
     mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
 }
 
-dependencies {
-    compile 'net.portswigger.burp.extender:burp-extender-api:1.7.22'
-    compile 'com.google.code.gson:gson:2.8.6'
+apply plugin: 'jacoco'
+
+// https://github.com/gradle/gradle/issues/15038
+jacoco {
+    toolVersion = '0.8.7-SNAPSHOT'
 }
 
-sourceSets {
-    main {
-        java {
-            srcDir 'src'
-        }
-        resources {
-            srcDir 'resources'
-        }
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
     }
 }
 
 targetCompatibility = '1.8'
 sourceCompatibility = '1.8'
 
+check.dependsOn jacocoTestReport
+
+dependencies {
+    implementation 'net.portswigger.burp.extender:burp-extender-api:1.7.22'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    testImplementation 'junit:junit:4.12'
+    // https://github.com/mockito/mockito/issues/1419
+    testImplementation 'org.mockito:mockito-core:2.23.4'
+}
+
 task fatJar(type: Jar) {
-    baseName = project.name + '-all'
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    archiveBaseName = project.name + '-all'
+    from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
 }
