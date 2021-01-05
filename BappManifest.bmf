@@ -2,8 +2,8 @@ Uuid: f24211fa6fcd4bbea6b21f99c5cad27a
 ExtensionType: 1
 Name: Token Extractor
 RepoName: token-extractor
-ScreenVersion: 1.0
-SerialVersion: 1
+ScreenVersion: 1.3.2
+SerialVersion: 2
 MinPlatformVersion: 0
 ProOnly: False
 Author: Will Strei

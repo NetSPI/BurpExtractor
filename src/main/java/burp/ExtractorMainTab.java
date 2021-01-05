@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ExtractorMainTab implements ITab {
-	private HashMap extractorTabMap;
+	private HashMap<Integer, ExtractorTab> extractorTabMap;
 	private ExtractorSelectorTab selectorTab;
 	private int tabNum = 0;
 	static int tabsRemoved = 0;
