@@ -439,7 +439,8 @@ public class ExtractorEditor {
 				this.isToolSelected(IBurpExtenderCallbacks.TOOL_PROXY),
 				this.isToolSelected(IBurpExtenderCallbacks.TOOL_SCANNER),
 				this.isToolSelected(IBurpExtenderCallbacks.TOOL_INTRUDER),
-				this.isToolSelected(IBurpExtenderCallbacks.TOOL_REPEATER));
+				this.isToolSelected(IBurpExtenderCallbacks.TOOL_REPEATER),
+				this.isToolSelected(IBurpExtenderCallbacks.TOOL_EXTENDER));
 		String[] requestSelectionRegex = this.getSelectionRegex();
 		RequestResponseState state = new RequestResponseState(tools,
 				this.useSuiteScope(),
@@ -457,6 +458,7 @@ public class ExtractorEditor {
 		this.toolSelectors.get(IBurpExtenderCallbacks.TOOL_SCANNER).setSelected(state.inScopeTools.scanner);
 		this.toolSelectors.get(IBurpExtenderCallbacks.TOOL_INTRUDER).setSelected(state.inScopeTools.intruder);
 		this.toolSelectors.get(IBurpExtenderCallbacks.TOOL_REPEATER).setSelected(state.inScopeTools.repeater);
+		this.toolSelectors.get(IBurpExtenderCallbacks.TOOL_EXTENDER).setSelected(state.inScopeTools.extender);
 		this.useScope.setSelected(state.useSuiteScope);
 		this.useCustomHost.setSelected(!state.useSuiteScope);
 		this.targetHost.setText(state.targetHost);
