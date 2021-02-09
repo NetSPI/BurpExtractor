@@ -68,6 +68,9 @@ public class ExtractorEditor {
 		ToolMenuItem repeater = new ToolMenuItem("Repeater", true);
 		toolSelectors.put(IBurpExtenderCallbacks.TOOL_REPEATER, repeater);
 		toolSelection.add(repeater);
+		ToolMenuItem extender = new ToolMenuItem("Extender", true);
+		toolSelectors.put(IBurpExtenderCallbacks.TOOL_EXTENDER, extender);
+		toolSelection.add(extender);
 		toolSelectionBar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
