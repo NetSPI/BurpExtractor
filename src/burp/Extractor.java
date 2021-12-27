@@ -2,6 +2,11 @@ package burp;
 
 import java.io.PrintWriter;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
 
 public class Extractor implements IHttpListener {
 	private ExtractorMainTab extractorMainTab;
@@ -57,6 +62,17 @@ public class Extractor implements IHttpListener {
 			}
 			if (edited) {
 				messageInfo.setRequest(request.getBytes());
+				IRequestInfo reqInfo = this.helpers.analyzeRequest(request.getBytes());
+				List<String> newHeaders = new ArrayList<String>();
+				for (String header : reqInfo.getHeaders()) {
+					if (!header.toLowerCase().startsWith("content-length")) {
+						newHeaders.add(header);
+					}
+				}
+				int contentLength = request.getBytes().length - reqInfo.getBodyOffset();
+				newHeaders.add("Content-Length: " + Integer.toString(contentLength));
+				byte[] newRequest = this.helpers.buildHttpMessage(newHeaders, Arrays.copyOfRange(request.getBytes(), reqInfo.getBodyOffset(), request.getBytes().length));
+				messageInfo.setRequest(newRequest);
 			}
 		} else if (!messageIsRequest) {
 
