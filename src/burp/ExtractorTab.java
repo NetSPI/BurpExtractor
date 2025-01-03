@@ -84,6 +84,7 @@ public class ExtractorTab implements ITab {
 		this.modifyRequests = new JButton("OFF");
 		this.modifyRequests.setFont(this.boldFont);
 		this.modifyRequests.setBackground(Color.RED);
+		this.modifyRequests.setForeground(Color.BLACK);
 		this.extractorOn = false;
 		buttonPanel.add(this.modifyRequests);
 		this.modifyRequests.addMouseListener(new MouseAdapter() {
