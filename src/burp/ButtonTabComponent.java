@@ -18,17 +18,20 @@ public class ButtonTabComponent extends JPanel {
         JLabel label = new JLabel(Integer.toString(tabNum));
         add(label);
         //add more space between the label and the button
-        label.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 5));
+        label.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 15));
         //tab button
         JButton button = new TabButton();
         add(button);
 }
 
     private class TabButton extends JButton implements ActionListener {
+        private String state = "ready";
 
         public TabButton() {
-            int size = 15;
-            setPreferredSize(new Dimension(size, size));
+            int vsize = 15;
+            int hsize = 15;
+            this.state = "notready";
+            setPreferredSize(new Dimension(hsize, vsize));
             setToolTipText("close this tab");
             setText("x");
             //Make it transparent
@@ -44,15 +47,24 @@ public class ButtonTabComponent extends JPanel {
             //Close the proper tab by clicking the button
             addActionListener(this);
         }
-
         @Override
         public void actionPerformed(ActionEvent e) {
             int index = extractorMainTab.getIndexOfTabComponent(ButtonTabComponent.this);
-            if (index != -1) {
-                extractorMainTab.removeTab(index);
-                extractorMainTab.removeExtractor(tabNum);
-                ExtractorMainTab.tabsRemoved++;
+            if (this.state == "ready") {
+                if (index != -1) {
+                    extractorMainTab.removeTab(index);
+                    extractorMainTab.removeExtractor(tabNum);
+                    ExtractorMainTab.tabsRemoved++;
+                }
+            } else {
+                setForeground(Color.RED);
+                this.state = "ready";
             }
+        }
+
+        public void setReady(){
+            this.state = "notready";
+            setForeground(Color.LIGHT_GRAY);;
         }
     }
 
@@ -69,6 +81,10 @@ public class ButtonTabComponent extends JPanel {
             Component component = e.getComponent();
             if (component instanceof AbstractButton) {
                 AbstractButton button = (AbstractButton) component;
+                if(button instanceof TabButton){
+                    TabButton tabbutton = (TabButton) button;
+                    tabbutton.setReady();
+                }
                 button.setBorderPainted(false);
             }
         }

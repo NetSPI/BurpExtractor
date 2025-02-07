@@ -84,7 +84,7 @@ public class ExtractorMainTab implements ITab {
 
 	@Override
 	public String getTabCaption() {
-		return "Extractor-serate";
+		return "Extractor";
 	}
 
 	@Override

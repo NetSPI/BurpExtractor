@@ -6,7 +6,7 @@ public class BurpExtender implements IBurpExtender {
 
     @Override
     public void registerExtenderCallbacks(IBurpExtenderCallbacks callbacks) {
-        callbacks.setExtensionName("Extractor-serate");
+        callbacks.setExtensionName("Extractor");
 
         // Create main extractor tab and an extractor, which actually does the work
         ExtractorMainTab extractorMainTab = new ExtractorMainTab(callbacks);

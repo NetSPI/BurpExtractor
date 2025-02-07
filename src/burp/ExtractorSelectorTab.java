@@ -43,6 +43,7 @@ public class ExtractorSelectorTab implements ITab {
 		// Add debug button
 		JButton debugButton = new JButton("Debug");
 		debugButton.setBackground(Color.LIGHT_GRAY);
+		debugButton.setForeground(Color.BLACK);
 		this.debugOn = false;
 		constraints.gridy = 0;
 		upperButtonPanel.add(debugButton, constraints);
@@ -182,7 +183,7 @@ public class ExtractorSelectorTab implements ITab {
 		this.requestTable = new JTable(requestModel) {
 			public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
 				Component c = super.prepareRenderer(renderer, row, column);
-				c.setForeground(Color.black);
+				//c.setForeground(Color.black);
 				return c;
 			}
 		};
@@ -203,7 +204,7 @@ public class ExtractorSelectorTab implements ITab {
 		this.responseTable = new JTable(responseModel) {
 			public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
 				Component c = super.prepareRenderer(renderer, row, column);
-				c.setForeground(Color.black);
+				//c.setForeground(Color.black);
 				return c;
 			}
 		};
