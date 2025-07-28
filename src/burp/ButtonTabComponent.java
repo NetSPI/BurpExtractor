@@ -50,22 +50,17 @@ public class ButtonTabComponent extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             int index = extractorMainTab.getIndexOfTabComponent(ButtonTabComponent.this);
-            if (this.state == "ready") {
-                if (index != -1) {
-                    extractorMainTab.removeTab(index);
-                    extractorMainTab.removeExtractor(tabNum);
-                    ExtractorMainTab.tabsRemoved++;
-                }
-            } else {
-                setForeground(Color.RED);
-                this.state = "ready";
+            if (index != -1) {
+                extractorMainTab.removeTab(index);
+                extractorMainTab.removeExtractor(tabNum);
+                ExtractorMainTab.tabsRemoved++;
             }
         }
 
-        public void setReady(){
+        /*public void setReady(){
             this.state = "notready";
             setForeground(Color.LIGHT_GRAY);;
-        }
+        }*/
     }
 
     private final static MouseListener buttonMouseListener = new MouseAdapter() {
@@ -83,7 +78,7 @@ public class ButtonTabComponent extends JPanel {
                 AbstractButton button = (AbstractButton) component;
                 if(button instanceof TabButton){
                     TabButton tabbutton = (TabButton) button;
-                    tabbutton.setReady();
+                    //tabbutton.setReady();
                 }
                 button.setBorderPainted(false);
             }

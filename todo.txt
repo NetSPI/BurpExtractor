@@ -1,0 +1,8 @@
+TODO:
+
+Naming tabs
+x Close tab confirmation
+
+
+Text wrapping
+To do this, you'd have to refactor the entire project to use Montoya API
