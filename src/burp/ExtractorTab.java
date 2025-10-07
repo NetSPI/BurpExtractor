@@ -81,9 +81,10 @@ public class ExtractorTab implements ITab {
 		// Made button to dictate whether or not the extension is active
 		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
 		buttonPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
-		this.modifyRequests = new JButton("Turn Extractor on");
+		this.modifyRequests = new JButton("OFF");
 		this.modifyRequests.setFont(this.boldFont);
-		this.modifyRequests.setBackground(Color.LIGHT_GRAY);
+		this.modifyRequests.setBackground(Color.RED);
+		this.modifyRequests.setForeground(Color.BLACK);
 		this.extractorOn = false;
 		buttonPanel.add(this.modifyRequests);
 		this.modifyRequests.addMouseListener(new MouseAdapter() {
@@ -94,11 +95,11 @@ public class ExtractorTab implements ITab {
 
 				// Change button appearance
 				if (extractorOn) {
-					modifyRequests.setBackground(Color.GRAY);
-					modifyRequests.setText("Turn Extractor off");
+					modifyRequests.setBackground(Color.GREEN);
+					modifyRequests.setText("ON");
 				} else {
-					modifyRequests.setBackground(Color.LIGHT_GRAY);
-					modifyRequests.setText("Turn Extractor on");
+					modifyRequests.setBackground(Color.RED);
+					modifyRequests.setText("OFF");
 				}
 			}
 		});
