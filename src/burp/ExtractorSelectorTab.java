@@ -232,7 +232,7 @@ public class ExtractorSelectorTab implements ITab {
 	public Component getUiComponent() {
 
 		JPanel pane = new JPanel();
-		pane.setBorder(BorderFactory.createMatteBorder(5,5,5, 5, new Color(255,255,255)));
+		pane.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
 		pane.setLayout(new GridBagLayout());
 		addLabels(pane);
 		addButtonPanel(pane);
